@@ -4,7 +4,7 @@ class InicioControlador extends BaseController {
 
 	public function index()
 	{
-		return View::make('inicio');
+		return View::make('admin.inicio');
 	}
 
 }

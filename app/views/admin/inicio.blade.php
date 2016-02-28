@@ -1,30 +1,65 @@
-<html>
-<head>
-	
-</head>	
-<body>
-	
+@extends ('cabecera')
+
+@section ('content') 
+  <script>
+  $(function() {
+    $( "#menu" ).menu();
+  });
+  </script>
+  <style>
+  .ui-menu { width: 250px; }
+  </style>
+<?php 
+/*
+$sql = "insert into menu_general (nombre, id_padre, id_grupos,visible)
+values ('listado esp 1', 15, '0', 1)";
+$datos = DB::insert($sql);
+*/
+
+$sql = "select * from menu_general order by id_padre, id";
+$datos = DB::select($sql);
+?>
 <pre>
-id nombre id_padre
-
-1, caja, 0
-2, operaciones de caja, 1
-3, abrir caja, 2
-4, listados, 1
-5, resumen de caja, 4
-6, configuracion, 1
-7, configurar caja, 6
-8, socios, 0
-9, ABM socios, 8
-10, listados, 8
-11, padron de socios, 10
+@foreach ($datos as $m)
+ID:{{$m->id}} NOMBRE:{{$m->nombre}} ID_PADRE:{{$m->id_padre}}
+@endforeach	
 </pre>
-{{ count($menu) }}
-@foreach ($menu as $m)
+<ul id="menu">
+@foreach ($datos as $m)
 
-	{{$m->nombre}}, {{$m->id_padre}} <br>
+	@if ($m->id_padre == 0)
+	<li>Modulo: {{$m->nombre}}
+	<ul>
+	@foreach ($datos as $sm)
+	@if ($sm->id_padre == $m->id && $m->id <> 0)
+		<li>SUB (1) id={{$sm->id}} / id_padre={{$sm->id_padre}}: {{$sm->nombre}}
+	<ul>
+	@foreach ($datos as $sm2)
+	@if ($sm2->id_padre == $sm->id && $sm->id <> 0)
+			<li>SUB (2) id={{$sm2->id}} / id_padre={{$sm2->id_padre}}: {{$sm2->nombre}}
+	<ul>
+	@foreach ($datos as $sm3)
+	@if ($sm3->id_padre == $sm2->id && $sm2->id <> 0)
+				<li>SUB (3) id={{$sm3->id}} / id_padre={{$sm3->id_padre}}: {{$sm3->nombre}}
+	<ul>
+	@foreach ($datos as $sm4)
+	@if ($sm4->id_padre == $sm3->id && $sm3->id <> 0)
+					<li>SUB (4) id={{$sm4->id}} / id_padre={{$sm4->id_padre}}: {{$sm4->nombre}}</li>
+	@endif
+	@endforeach
+	</ul>
+	@endif
+	@endforeach
+	</li></ul>
+	@endif
+	@endforeach
+	</li></ul>
+	@endif
+	@endforeach
+	</li></ul>
+	@endif
 
 @endforeach
+</ul>
 
-</body>
-</html>
+@stop
