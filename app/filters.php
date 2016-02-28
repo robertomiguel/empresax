@@ -98,31 +98,39 @@ Route::filter('csrf', function()
 
 //--- Acceso a las rutas de admin... si falla, redirecciona al inicio
 Route::filter('soyadmin', function() {
-    if(Auth::user()->nivel==99) {} else {return Redirect::to('/')->withFlashMessage('Acceso denegado');}
+
+    if ( Auth::user()->usr_codigo_grupo == 0 && Auth::user()->usr_habilitado == 1 ) {
+
+    } else {
+    	return Redirect::to('/')->withFlashMessage('Acceso denegado');
+    }
 });
 
 //--- Acceso a las rutas de usuario... si falla, redirecciona al inicio
 Route::filter('soyusuario', function() {
 
-	if( Auth::user()->nivel > 0 && Auth::user()->estado == 0 ) {
+/*	if( Auth::user()->nivel > 0 && Auth::user()->estado == 0 ) {
     	return View::make('login.cambiarclave')->withFlashMessage('Nuevo Usuario o Reseteo de Clave');}
-
-    if( Auth::user()->nivel > 0 && Auth::user()->estado == 1 ) {
-    	Usuario::actualizaFechaIp();
+*/
+    if( Auth::user()->usr_habilitado == 1 ) {
+    	//Usuario::actualizaFechaIp();
     } else {
     	Auth::logout();
     	return Redirect::to('/')->withFlashMessage('Acceso denegado');}
 });
 
-//--- Acceso a las rutas de comercio... si falla, redirecciona al inicio
-Route::filter('soycomercio', function() {
-
+//--- Acceso a las rutas de socios... si falla, redirecciona al inicio
+Route::filter('soysocio', function() {
+/*
 	if( Auth::user()->nivel > 1 && Auth::user()->estado == 0 ) {
-    	return View::make('login.cambiarclave')->withFlashMessage('Nuevo Usuario o Reseteo de Clave');}
-
-    if( Auth::user()->nivel > 1 && Auth::user()->estado == 1) { // && ComercioControlador::estado()=='A'
-    	Usuario::actualizaFechaIp();
+    	return View::make('login.cambiarclave')->withFlashMessage('Nuevo Usuario o Reseteo de Clave');
+    }
+*/
+    if( Auth::user()->usr_codigo_grupo == 50 && Auth::user()->usr_habilitado == 1) {
+    	//Usuario::actualizaFechaIp();
     } else {
     	Auth::logout();
-    	return Redirect::to('/')->withFlashMessage('Acceso denegado');}
+    	return Redirect::to('/')->withFlashMessage('Acceso denegado');
+    }
+
 });

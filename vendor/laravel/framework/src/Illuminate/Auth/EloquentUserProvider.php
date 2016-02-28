@@ -88,7 +88,7 @@ class EloquentUserProvider implements UserProviderInterface {
 
 		foreach ($credentials as $key => $value)
 		{
-			if ( ! str_contains($key, 'clave')) $query->where($key, $value);
+			if ( ! str_contains($key, 'usr_clave')) $query->where($key, $value);
 		}
 
 		return $query->first();
@@ -103,7 +103,7 @@ class EloquentUserProvider implements UserProviderInterface {
 	 */
 	public function validateCredentials(UserInterface $user, array $credentials)
 	{
-		$plain = $credentials['clave'];
+		$plain = $credentials['usr_clave'];
 		if ($plain==$user->getAuthPassword()) {
 			return true;
 		}

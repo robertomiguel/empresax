@@ -5,48 +5,8 @@ App::missing(function($exception)
 });
 
 //--- PRUEBA ANDROID
-Route::get('neotest', function() {   
+Route::get('test', function() {   
     return;
-});
-
-Route::post('licencia', function() {
-  $ip     = Request::getClientIp();
-  $fecha  = Formatos::fechaHoraActual();
-
-  $nombre_empresa = Input::get('empresa',      'no hay');
-  $clave_acceso   = Input::get('clave',        'no hay');
-  $confirmacion   = Input::get('confirmacion', 'no hay');
-  $licenciaActual = Input::get('licencia',     'no hay');
-
-  if ($clave_acceso   == 'no hay') { return; }
-  if ($nombre_empresa == 'no hay') { return; }
-
-  if ($clave_acceso <> '123456.a') {
-    Log::warning("ALERTA PASSWORD:\n$nombre_empresa\nPass:$clave_acceso\nIP:$ip Fecha:$fecha");
-    return 'error 1333'
-  ;}
-  
-  $licencia = Licencia::getLicencia($nombre_empresa);
-  if ( count($licencia) <= 0) {
-    Log::warning("ALERTA EMPRESA:\n$nombre_empresa\nIP:$ip Fecha:$fecha");
-    return 'error 3222';
-  }
-  
-  $licencia_nueva = $licencia[0]->clave;
-
-  if ($confirmacion == 'ok') {
-    Log::info("LICENCIA ACTUALIZADA:\n$nombre_empresa\nIP:$ip Fecha:$fecha");
-    return 'ok';
-  }
-
-  if ($licenciaActual == $licencia_nueva)  {
-    Log::info("MISMA LICENCIA:\n$nombre_empresa\nLicencia:$licenciaActual\nIP:$ip Fecha:$fecha");
-    return 'No hay licencia Nueva';
-  }
-
-  Log::info("LICENCIA ENVIADA:\n$nombre_empresa\nIP:$ip Fecha:$fecha");
-  return utf8_decode($licencia_nueva);
-
 });
 
 /*
@@ -94,6 +54,11 @@ App::error(function(Exception $exception, $code)
 //--- Ruta por defecto
 Route::resource('/', 'inicioControlador');
 
+Route::group(array('before' => 'auth'), function(){
+    Route::resource('admin', 'adminControlador@inicio');
+}); //--------- FIN ADMIN ACCESS
+
+/*
 //--------------- RUTAS QUE ACCEDE ADMIN
 Route::group(array('before' => 'auth|soyadmin'), function(){
     Route::resource('admin', 'adminControlador@inicio');
@@ -106,7 +71,7 @@ Route::group(array('before' => 'auth|soyusuario'), function(){
 }); //--------- FIN ADMIN ACCESS
 
 //--------------- RUTAS QUE ACCEDE COMERCIO
-Route::group(array('before' => 'auth|soycomercio'), function(){
+Route::group(array('before' => 'auth|soycliente'), function(){
     Route::controller('autorizaciones','comercioControlador');
     Route::post('validar','comercioControlador@validar');
 }); //--------- FIN ADMIN ACCESS
@@ -119,6 +84,7 @@ Route::group(array('before' => 'auth'), function(){
       return View::make('login.cambiarclave')->withFlashMessage('');
     });
 }); //--------- FIN ADMIN ACCESS
+*/
 
 //listado de prueba
 Route::controller('listado', 'prueba');

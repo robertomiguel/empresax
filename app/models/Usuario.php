@@ -9,13 +9,13 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
 
 	protected $table = 'persona';
-	protected $primaryKey = 'id';
+	protected $primaryKey = 'nro_persona';
 	public $timestamps = false;
 
-	protected $hidden = array('clave', 'recordar_token');
+	protected $hidden = array('usr_clave', 'usr_recordar_token');
 
   static public function actualizaFechaIp(){
-
+/*
       $nro_persona = Auth::user()->nro_persona;
       //$ip = Request::getClientIp();
       if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -33,6 +33,7 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
                     SET ultima_ip = '$ip', ultimo_acceso =  convert(datetime ,'$fecha',120)
                   WHERE nro_persona = $nro_persona
                   ");
+*/
   }
 
 	public function getAuthIdentifier()
@@ -42,26 +43,26 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
   
   public function getAuthPassword()
   {
-    return $this->clave;
+    return $this->usr_clave;
   } 
   
   public function getRememberToken()
   {
-    return $this->recordar_token;
+    return $this->usr_recordar_token;
   }
   
   public function setRememberToken($value)
   {
-    $this->recordar_token = $value;
+    $this->usr_recordar_token = $value;
   }
   
   public function getRememberTokenName()
   {
-    return "recordar_token";
+    return "usr_recordar_token";
   }
   
   public function getReminderEmail()
   {
-    return $this->email;
+    return $this->usr_usuario;
   }
 }

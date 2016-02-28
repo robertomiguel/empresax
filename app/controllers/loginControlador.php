@@ -4,14 +4,17 @@ class LoginControlador extends BaseController {
     public function acceso()
     {
     $datos = array(
-            'email'=> Input::get('email'),
-            'clave'=> Input::get('clave')
+            'usr_usuario' => Input::get('email'),
+            'usr_clave'   => Input::get('clave')
         );
 
-	if (Auth::attempt($datos, false))
-      {
+	if (Auth::attempt($datos, false))  {
+       
+       if(Auth::user()->usr_codigo_grupo == 0 ) {
+          return Redirect::to('/admin');  
+        } // else {return Redirect::to('/')->withFlashMessage('Acceso denegado');}
 
-      	return Redirect::to('/autorizaciones');
+      	  return Redirect::to('/')->withFlashMessage('login ok, pero no hay nada =(');
       } 
        
       return Redirect::to('/')->withFlashMessage('E-Mail y/o Contraseña incorrecta.');
@@ -56,8 +59,8 @@ class LoginControlador extends BaseController {
       $nro_persona = Auth::user()->nro_persona;
 
       $retorno = DB::update("
-                              UPDATE hb_usuario
-                                     SET clave = '$clave', estado = 1
+                              UPDATE persona
+                                     SET usr_clave = '$clave', estado = 1
                               WHERE nro_persona = $nro_persona
                             ");
       Auth::logout();
