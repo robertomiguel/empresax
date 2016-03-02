@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<style>
-
-  .neologo{
-    max-height: 30px;
-  }
-</style>
 <html>
   <head>
-    <title>@yield('title', 'HOME BANKING')</title>
+    <title>@yield('title', 'Empresa X')</title>
     {{--<meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
     <meta name="viewport" content="width=device-width,initial-scale=1,maximun-scale=1">
     <link rel="shortcut icon" href="favicon.png" />
 <?php //seleccionar tema
-$ini = parse_ini_file("../app/config/neoweb.ini");
+$ini = parse_ini_file("../app/config/temajs.ini");
 $sel = $ini['seleccion'];
 $tema = $ini[$sel];
  ?>
@@ -36,21 +30,12 @@ $tema = $ini[$sel];
                                 '/js/bootstrap.min.js',
                                 '/js/jquery-ui.min.js',
                                 '/js/jquery.dataTables.min.js',
-                                '/js/posnet.js',
                                 )) }}
-
 
   </head>
   <body>
   
-      
         @yield('content')
   
-       {{-- <div class='footer navbar-fixed-bottom ui-state-highlight' align="center">
-                      <a href="http://www.neosistemassrl.com/" target="_blank">
-                        <img src="img/neo.jpg" class="img-responsive neologo img-rounded">
-                      </a>
-                     </div> --}}
-       
   </body>
 </html>

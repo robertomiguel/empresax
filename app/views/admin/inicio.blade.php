@@ -1,14 +1,24 @@
 @extends ('cabecera')
 
 @section ('content') 
+
+<script src="js/jstree.min.js"></script>
+
 <script>
+/*
   $(function() {
     $( "#menu" ).menu();
   });
+  */
+
+  $(function () { $('#jstree_demo_div').jstree(); });
+
 </script>
+
 <style>
   .ui-menu { width: 250px; }
 </style>
+
 <?php 
 /*
 $sql = "insert into menu_general (nombre, id_padre, id_grupos,visible)
@@ -29,7 +39,8 @@ ID:{{$m->id}} NOMBRE:{{$m->nombre}} ID_PADRE:{{$m->id_padre}}
 @endforeach	
 </pre>
 
-<ul id="menu">
+<div id="jstree_demo_div">
+<ul>
 @foreach ($datos as $m)
 
 	@if ($m->id_padre == 0)
@@ -100,4 +111,5 @@ ID:{{$m->id}} NOMBRE:{{$m->nombre}} ID_PADRE:{{$m->id_padre}}
 
 @endforeach
 </lu>
+</div>
 @stop

@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <title> </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximun-scale=1">
-    <link rel="stylesheet" href="tema/css/estilos.css">
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="tema/js/scripts.js"></script>
-    {{ Cargar::stylesheet(array(
-                          '/css/global.css',
-                          )) }}   
-  </head>
+@extends ('cabecera')
+
+@section ('content')
 
 <style>
 @media screen and (min-width: 1040px) {
@@ -113,15 +103,6 @@
 	</form>
 
 </div>	
-
-<div class="logo" align="center">
-	<a href="http://www.premiernoa.com/" target="_blank">
-		<img src="img/logo.png" class="base-100 tablet-40 movil-65">
-	</a>
-</div>
-
-</body>
-</html>
 
 @if(isset($error404))
 	<script>

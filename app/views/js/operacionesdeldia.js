@@ -1,6 +1,0 @@
-
-function operaciones() {
-
-	alert('aaa');
-
-}

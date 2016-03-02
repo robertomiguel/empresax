@@ -9,12 +9,14 @@ class LoginControlador extends BaseController {
         );
 
 	if (Auth::attempt($datos, false))  {
-       
+/*       
        if(Auth::user()->usr_codigo_grupo == 0 ) {
           return Redirect::to('/admin');  
         } // else {return Redirect::to('/')->withFlashMessage('Acceso denegado');}
 
       	  return Redirect::to('/')->withFlashMessage('login ok, pero no hay nada =(');
+*/
+          return Redirect::to('inicio');
       } 
        
       return Redirect::to('/')->withFlashMessage('E-Mail y/o Contraseña incorrecta.');

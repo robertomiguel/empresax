@@ -4,25 +4,11 @@ App::missing(function($exception)
   {return Redirect::to('/');
 });
 
-//--- PRUEBA ANDROID
+//--- PRUEBA
 Route::get('test', function() {   
-    return;
+    return 'test';
 });
 
-/*
-Route::get('neotest', function()
-{   
-    $sql = " SELECT TOP 20 apellido, nombre 
-               FROM personas
-           ";
-
-    $datos = DB::select($sql);
-
-    //return json_encode($datos, JSON_FORCE_OBJECT);
-    return json_encode($datos);
-    //return xmlrpc_encode($datos);
-});
-*/
 
 App::error(function(Exception $exception, $code)
 {
@@ -55,7 +41,16 @@ App::error(function(Exception $exception, $code)
 Route::resource('/', 'inicioControlador');
 
 Route::group(array('before' => 'auth'), function(){
-    Route::resource('admin', 'adminControlador@inicio');
+    Route::resource('inicio',       'generalControlador@inicio');
+    Route::resource('caja',         'cajaControlador@inicio');
+    Route::resource('persona',      'personaControlador@inicio');
+    Route::resource('cuentaahorro', 'cajaControlador@inicio');
+    Route::resource('suscripcion',  'suscripcionControlador@inicio');
+    Route::resource('liquidacion',  'liquidacionControlador@inicio');
+    Route::resource('proveedor',    'proveedorControlador@inicio');
+    Route::resource('consultas',    'consultasControlador@inicio');
+    Route::resource('contabilidad', 'consultasControlador@inicio');
+    Route::resource('admin',        'adminControlador@inicio');
 }); //--------- FIN ADMIN ACCESS
 
 /*
@@ -87,7 +82,7 @@ Route::group(array('before' => 'auth'), function(){
 */
 
 //listado de prueba
-Route::controller('listado', 'prueba');
+//Route::controller('listado', 'prueba');
 
 //--- Login
 Route::post('entrar', 'loginControlador@acceso');
