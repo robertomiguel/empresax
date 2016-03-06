@@ -1,58 +1,57 @@
-html {
-	height: 100%;
-    background-color: #e6e9e9;
-    background: none;
-}
 body {
-    margin: 0 auto;
-    padding: 0 0 4em;
-    max-width: 1024px;
-    min-height: 100%;
-    font-family: "sans-serif", sans-serif, Helvetica, Arial;
-    font-size: 14px;
-    line-height: 1.5em;
-    color: black;
-    background-color: #ffffff;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    background: #3E8CA9;
+    background-image: url('/img/fondo_premier_50.png');
+    padding:0;
+    margin:0;
+    margin-top:10px
 }
-.colorfondo {
-    background: #b2b0bf !important;
+.marco {
+    max-width:900px;
+    background-color: #F2F2F2;
+    margin:auto;
+    padding:5px;
+    height:100%;
 }
-.fondoventana {
-    background: #e9e7f4;
-}
-.fondotitulo {
-    background: #b2b0bf;
-}
-button {
-	background: #b2b0bf;
-	-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 0;
-    padding-right: 13px;
-    padding-left: 13px;
-}
-button:hover {
-	background: #e0e0e2;
-}
-.fondopanel {
-    background: #e9e7f4;
-}
-.boton {
-	background: #b2b0bf;
-	-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 0;
-    padding-right: 13px;
-    padding-left: 13px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.boton:hover {
-	background: #e0e0e2;
-}
+
+.marcas {text-align: center;
+         vertical-align: center;
+         border-spacing: 15px;
+         border-collapse: separate;
+        }
+.marcas a {text-decoration: none;
+            border: #4395E1 solid 2px;
+            background: white;
+            display: block;
+            width: 160px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+        }
+
+.marcas a:hover {background: #615883; color: white;}
+
+.rubros {text-align: center;
+         vertical-align: center;
+         border-spacing: 15px;
+         padding: 10px;
+         border-collapse: separate;
+        }
+.rubros a {text-decoration: none;
+            border: #4395E1 solid 2px;
+            background: white;
+            display: block;
+            width: 160px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+        }
+
+.rubros a:hover {background: #615883; color: white;}
+
+.buscar {width: 160px}
+
+.detalle { text-align: center;
+           max-height: 700px;}
 
 .sombra {
         -webkit-box-shadow: 0 0 8px 4px rgba(0, 0, 0, .5);
@@ -80,32 +79,16 @@ button:hover {
     right: 0;
     margin:auto;
 }
-.texto-centro {
-  align-text:center;
-}
+
 .redondear {
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;
 }
-.texto-sombra {
+
+.textosombra {
     color: white !important;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-}
-.textoSombra {
-    color: #6B70A0 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-}
-
-.texto-blanco{
-    color: white !important;
-}
-.gris {
-    background: gray;
-}
-
-.blanco {
-    background: white;
 }
 
 .derecha {float: right;}
@@ -114,10 +97,22 @@ button:hover {
     display: table-cell;
    vertical-align: bottom;
 }
-.titulo {
-	background: #b2b0bf;
-	height: 30px;
-	font-size: 100%;
-	color: white !important;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+
+.imagenes{
+    top: 10px;
+    background: white;
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.imagenes img{
+    width: 100%;
+}
+
+.marca {
+    position: absolute;
+    bottom: 60px;
+    width: 100px !important;
+    padding: 5px;
 }
