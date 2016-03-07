@@ -28,4 +28,7 @@ class InicioControlador extends BaseController {
 		return View::make('portal.laempresa');
 	}
 
+	public function plan84(){
+		return View::make('portal.plan84');
+	}
 }
