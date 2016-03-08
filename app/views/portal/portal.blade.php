@@ -83,5 +83,29 @@
       <div id="contenido">Cargando...</div>
  </div>
 
+<div id='consultar' title='Consulta'>
+      <div class="consulta">
+	      	<table>
+				<tr>
+		      		<td>Nombre:</td>	<td><input type="text" id="nombre"></td>
+				</tr>
+				<tr>
+					<td>Teléfono:</td>	<td><input type="text" id="tel"></td>
+				</tr>
+				<tr>
+					<td>Localidad:</td>	<td><input type="text" id="localidad"></td>
+				</tr>
+		        <tr>
+		       		<td>E-Mail:</td>	<td><input type="email" id="email"></td>
+		        </tr>
+		        <tr>
+		       		<td>Consulta:</td>	<td><textarea id="consulta" cols="30" rows="5" maxlength="300" ></textarea></td>
+		        </tr>
+	      	</table>
+	      </form>
+      </div>
+ </div>
+
 <script type="text/javascript" src="/slick/slick.min.js"></script>
+
 @stop

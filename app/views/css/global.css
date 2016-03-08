@@ -116,3 +116,21 @@ body {
     width: 100px !important;
     padding: 5px;
 }
+
+.consulta table {width: 100%;}
+
+.consulta input { color: black;
+                    width: 100%;
+                    text-indent: 10px;
+                    -webkit-border-radius: 15px;
+                    -moz-border-radius: 15px;
+                    border-radius: 15px;
+}
+
+.consulta textarea { color: black;
+                     width: 100%;
+                     text-indent: 10px;
+                    -webkit-border-radius: 15px;
+                    -moz-border-radius: 15px;
+                    border-radius: 15px;
+}

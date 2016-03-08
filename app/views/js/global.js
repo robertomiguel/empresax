@@ -28,6 +28,32 @@ $(document).ready(function() {
 	  }
     });
 
+    $('#consultar' ).dialog({
+      position: { my: 'center', at: 'center', of: window },
+      resizable: false,
+    modal: true,
+      height: 400,
+      width: 500,
+      autoOpen: false,
+      show: {
+        effect: 'clip',
+        duration: 500
+      },
+      hide: {
+        effect: 'clip',
+        duration: 500
+      },
+    buttons: {
+        Cerrar: function() {
+          $( this ).dialog( "close" );
+        },
+        'Enviar Consulta': function() {
+              grabarconsulta();
+            }
+    }
+    });
+
+
 });
 
 function cargarlista(marca){
@@ -59,4 +85,46 @@ function laempresa(){
     function(data){
       $('#contenido').html(data);
   });
+}
+
+function consultar(){
+  $('#nombre').val('');
+  $('#consulta').val('');
+  $('#tel').val('');
+  $('#email').val('');
+  $('#localidad').val('');
+  $( "#consultar" ).dialog( "open" );
+}
+
+function grabarconsulta(){
+  var nombre    = $('#nombre').val().trim();
+  var consulta  = $('#consulta').val().trim();
+  var tel       = $('#tel').val().trim();
+  var email     = $('#email').val().trim();
+  var localidad = $('#localidad').val().trim();
+
+  if (nombre    == '')  { alert('Falta el Nombre');     return; }
+  if (tel       == '')  { alert('Falta el Teléfono');   return; }
+  if (localidad == '')  { alert('Falta la Localidad');  return; }
+  if (email     == '')  { alert('Falta el E-Mail');     return; }
+  if (consulta  == '')  { alert('Falta la Consulta');   return; }
+
+  $.post("grabarconsulta",{
+    nombre    : nombre    ,
+    tel       : tel       ,
+    localidad : localidad ,
+    email     : email     ,
+    consulta  : consulta
+  },
+    function(data){
+      //$('#contenidoconsulta').html(data);
+      if (data=='r:1') {
+        alert('Consulta enviada, un representante se pondrá en contacto con usted.');
+        $( "#consultar" ).dialog( "close" );      
+      } else {
+        alert('No se pudo enviar la consulta, intente más tarde.');
+      }
+  });
+  
+
 }

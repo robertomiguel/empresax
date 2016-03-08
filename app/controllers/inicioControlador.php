@@ -31,4 +31,17 @@ class InicioControlador extends BaseController {
 	public function plan84(){
 		return View::make('portal.plan84');
 	}
+
+	public function grabarconsulta() {
+		$nombre 	= Input::get('nombre');
+		$tel 		= Input::get('tel');
+		$localidad 	= Input::get('localidad');
+		$email 		= Input::get('email');
+		$consulta 	= Input::get('consulta');
+		$ip 		= '0.0.0.0';
+
+		$grabar = Consulta::grabar($nombre, $tel, $localidad, $email, $consulta, $ip);
+
+		return 'r:'.$grabar;
+	}
 }

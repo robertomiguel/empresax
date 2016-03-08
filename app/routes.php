@@ -40,9 +40,11 @@ App::error(function(Exception $exception, $code)
 //--- Ruta por defecto
 Route::resource('/', 'inicioControlador');
 
-Route::post('marcalistado', 'inicioControlador@marcalistado');
-Route::post('rubrolistado', 'inicioControlador@rubrolistado');
-Route::post('laempresa', 'inicioControlador@laempresa');
+Route::post('marcalistado',   'inicioControlador@marcalistado');
+Route::post('rubrolistado',   'inicioControlador@rubrolistado');
+Route::post('laempresa',      'inicioControlador@laempresa');
+Route::post('plan84',         'inicioControlador@plan84');
+Route::post('grabarconsulta', 'inicioControlador@grabarconsulta');
 
 Route::group(array('before' => 'auth'), function(){
     Route::resource('inicio',       'generalControlador@inicio');
