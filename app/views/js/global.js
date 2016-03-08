@@ -53,7 +53,25 @@ $(document).ready(function() {
     }
     });
 
+    $('#ingresar' ).dialog({
+      position: { my: 'center', at: 'center', of: window },
+      resizable: false,
+    modal: true,
+      height: 220,
+      width: 400,
+      autoOpen: false,
+    buttons: {
+        Cancelar: function() {
+          $( this ).dialog( "close" );
+        },
+        Ingresar: function() {
+              alert('Usuario y/o contraseña incorrecta');
+              $( this ).dialog( "close" );
+            }
+    }
+    });
 
+$('.ui-dialog').addClass('sombra');
 });
 
 function cargarlista(marca){
@@ -127,4 +145,8 @@ function grabarconsulta(){
   });
   
 
+}
+
+function ingresar(){
+  $( "#ingresar" ).dialog( "open" );
 }

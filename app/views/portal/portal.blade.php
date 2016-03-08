@@ -106,6 +106,20 @@
       </div>
  </div>
 
+<div id='ingresar' title='Acceso Clientes'>
+      <div class="clientes">
+	      	<table>
+				<tr>
+		      		<td>Usuario:</td>	<td><input type="text" id="usuario"></td>
+				</tr>
+				<tr>
+					<td>Contraseña:</td>	<td><input type="text" id="pass"></td>
+				</tr>
+	      	</table>
+	      </form>
+      </div>
+ </div>
+
 <script type="text/javascript" src="/slick/slick.min.js"></script>
 
 @stop
