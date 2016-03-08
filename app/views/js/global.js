@@ -71,6 +71,30 @@ $(document).ready(function() {
     }
     });
 
+    $('#plan84' ).dialog({
+      position: { my: 'center', at: 'center', of: window },
+      resizable: false,
+    modal: true,
+      height: 655,
+      width: 800,
+      autoOpen: false,
+      show: {
+        effect: 'clip',
+        duration: 500
+      },
+      hide: {
+        effect: 'clip',
+        duration: 500
+      },
+    buttons: {
+        Cerrar: function() {
+          $( this ).dialog( "close" );
+        }
+    }
+    });
+
+
+
 $('.ui-dialog').addClass('sombra');
 });
 
@@ -148,5 +172,11 @@ function grabarconsulta(){
 }
 
 function ingresar(){
+  $('#usuario').val('');
+  $('#pass').val('');
   $( "#ingresar" ).dialog( "open" );
+}
+
+function plan84 () {
+  $( "#plan84" ).dialog( "open" );
 }

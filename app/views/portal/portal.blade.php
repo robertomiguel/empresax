@@ -50,7 +50,10 @@
 		<td>
 			<table class="rubros">
 				<tr>
-					<td><img src="/img/plan84.png" alt=""></td>
+					<td>
+						<a href="javascript:plan84()">
+							<img class="botonplan84" src="/img/plan84.png" alt=""></td>
+						</a>
 				</tr>
 				@foreach ($rubros as $r)
 					<tr>
@@ -113,12 +116,46 @@
 		      		<td>Usuario:</td>	<td><input type="text" id="usuario"></td>
 				</tr>
 				<tr>
-					<td>Contraseña:</td>	<td><input type="text" id="pass"></td>
+					<td>Contraseña:</td>	<td><input type="password" id="pass"></td>
 				</tr>
 	      	</table>
 	      </form>
       </div>
  </div>
+
+<div id='plan84' title='Plan 84 cuotas'>
+      <div class="plan84">
+	      	<table>
+				<tr>
+		      		<td>Cuotas Fijas en Pesos</td>
+				</tr>
+				<tr>
+					<td>Entrega con el 50% de la unidad</td>
+				</tr>
+				<tr>
+					<td>A partir de la cuota seis puede solicitar la entrega</td>
+				</tr>
+				<tr>
+					<td>Cuota espera: paga el 50% hasta la entrega</td>
+				</tr>
+				<tr>
+					<td>Sorteo: posibilidad de ganar el 30% del vehículo</td>
+				</tr>
+				<tr>
+					<td>La unidad se entrega con garantía prendaria,<br>
+						hasta cumplir con el pago total (única garantía)</td>
+				</tr>
+				<tr>
+					<td>Unidades 0KM con garantía de fábrica</td>
+				</tr>
+				<tr>
+					<td>LA MEJOR FINANCIACION DEL MERCADO</td>
+				</tr>
+	      	</table>
+	      </form>
+      </div>
+ </div>
+
 
 <script type="text/javascript" src="/slick/slick.min.js"></script>
 

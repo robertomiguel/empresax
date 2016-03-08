@@ -134,3 +134,21 @@ body {
                     -moz-border-radius: 15px;
                     border-radius: 15px;
 }
+
+.plan84 {
+    background-image: url('/img/entrega.png');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.plan84 table {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-spacing: 15px;
+    padding: 10px;
+    border-collapse: separate;
+}
+
