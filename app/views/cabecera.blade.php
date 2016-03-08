@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>@yield('title', 'Empresa X')</title>
+    <title>@yield('title', 'Servicios Premier - Rosario')</title>
     {{--<meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
     <!--meta name="viewport" content="width=device-width,initial-scale=1,maximun-scale=1"-->
     <link rel="shortcut icon" href="favicon.png" />
