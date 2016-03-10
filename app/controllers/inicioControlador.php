@@ -44,4 +44,9 @@ class InicioControlador extends BaseController {
 
 		return 'r:'.$grabar;
 	}
+
+	public function verconsultas(){
+		$pass = Input::get('p','nada');
+		return View::make('admin.verconsultas')->with('pass', $pass);
+	}
 }

@@ -45,6 +45,7 @@ Route::post('rubrolistado',   'inicioControlador@rubrolistado');
 Route::post('laempresa',      'inicioControlador@laempresa');
 Route::post('plan84',         'inicioControlador@plan84');
 Route::post('grabarconsulta', 'inicioControlador@grabarconsulta');
+Route::get('verconsultas',   'inicioControlador@verconsultas');
 
 Route::group(array('before' => 'auth'), function(){
     Route::resource('inicio',       'generalControlador@inicio');
