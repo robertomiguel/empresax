@@ -33,4 +33,12 @@ class Consulta extends Eloquent {
 		$datos = DB::insert($sql);
 	return $datos;
 	}
+
+	static public function mostrar() {
+		$sql = "Select * From consulta";
+
+		$datos = DB::select($sql);
+	return $datos;
+	}
+
 }

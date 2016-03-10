@@ -47,6 +47,11 @@ class InicioControlador extends BaseController {
 
 	public function verconsultas(){
 		$pass = Input::get('p','nada');
-		return View::make('admin.verconsultas')->with('pass', $pass);
+		if ($pass=='Roberts!!') {
+			$consultas = Consulta::mostrar();
+		} Else {
+			$consultas = '';
+		}
+		return View::make('admin.verconsultas')->with('consultas', $consultas);
 	}
 }
