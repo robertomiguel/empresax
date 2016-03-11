@@ -48,6 +48,8 @@ Route::post('grabarconsulta', 'inicioControlador@grabarconsulta');
 Route::get('verconsultas',   'inicioControlador@verconsultas');
 
 Route::group(array('before' => 'auth'), function(){
+    Route::resource('usuario', 'usuarioControlador');
+/*
     Route::resource('inicio',       'generalControlador@inicio');
     Route::resource('caja',         'cajaControlador@inicio');
     Route::resource('persona',      'personaControlador@inicio');
@@ -58,6 +60,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::resource('consultas',    'consultasControlador@inicio');
     Route::resource('contabilidad', 'consultasControlador@inicio');
     Route::resource('admin',        'adminControlador@inicio');
+*/
 }); //--------- FIN ADMIN ACCESS
 
 /*
