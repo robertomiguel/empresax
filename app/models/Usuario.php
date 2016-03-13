@@ -7,9 +7,15 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class Usuario extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
+<<<<<<< HEAD
   
   protected $connection = 'universal';
   protected $table = 'suscriptor';
+=======
+
+  protected $connection= 'universal';
+	protected $table = 'suscriptor';
+>>>>>>> origin/master
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
