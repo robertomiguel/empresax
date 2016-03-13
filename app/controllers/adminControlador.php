@@ -14,9 +14,35 @@ class adminControlador extends BaseController {
     	return View::make('admin.crearlistado')->with('marcas',$marcas);
     }
 
-    public function verlistadoautos(){
+    public function verlistadoautos()
+    {
     	$lista = Input::get('lista');
+    	$autos = Autos::listar($lista);
+    	return View::make('admin.listaautos')->with('autos',$autos);
+    }
 
-    	return $lista;
+    public function imprimirlistado()
+    {
+    	$lista = Input::get('lista');
+    	//$lista = "'WULING', 'VOLVO', 'VOLKSWAGEN', 'TOYOTA'";
+    	//$lista = "'TATA'";
+    	
+    	$autos = Autos::listar($lista);
+
+/*
+		$pdf = App::make('dompdf');
+		$pdf->loadHTML(View::make('admin.listaautos')->with('autos',$autos))->setWarnings(false)->setPaper('a4');
+		
+		return $pdf->stream('listado_autos');
+*/
+		/*
+		$html = View::make('admin.pdflistaautos')->with('autos',$autos);
+		PDF::SetTitle('Hello World: '. $lista);
+		PDF::AddPage();
+		//PDF::Write(0, 'Hello World');
+		PDF::writeHTML($html, true, false, true, false, '');
+		PDF::Output('hello_world.pdf');
+		*/
+		return View::make('admin.listaautos')->with('autos',$autos);
     }
 }

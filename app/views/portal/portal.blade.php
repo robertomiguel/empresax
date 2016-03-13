@@ -2,6 +2,8 @@
 
 @section ('content')
 
+{{ Cargar::javascript(array( '/js/portal.js' )) }}
+
 <div class="marco redondear sombra">
 
 <table>

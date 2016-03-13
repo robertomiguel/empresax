@@ -49,6 +49,7 @@ Route::get('verconsultas',   'inicioControlador@verconsultas');
 
 Route::get('crearlistado', 'adminControlador@crearlistado');
 Route::post('verlistado','adminControlador@verlistadoautos');
+Route::get('imprimirlistado', 'adminControlador@imprimirlistado');
 
 Route::group(array('before' => 'auth'), function(){
     Route::resource('usuario', 'usuarioControlador');

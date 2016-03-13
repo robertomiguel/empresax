@@ -1,6 +1,8 @@
 @extends ('cabecera')
 
 @section ('content') 
+{{ Cargar::javascript(array( '/js/crearlistado.js' )) }}
+
 <style>
 	.info {
 		position: fixed;
@@ -22,6 +24,17 @@
 	#seleccion tr:nth-child(even) {background: #CCC}
 	#seleccion tr:nth-child(odd) {background: #FFF}
 
+	.listado {
+		border-right: 50%;
+		border-left: 50%;		
+		width: 600px;
+		padding: 10px;
+	}
+	.listado td {
+		vertical-align: top !important;
+		padding: 5px;
+	}
+
 </style>
 <div class="info sombra redondear">
 	<table id="seleccion">
@@ -33,22 +46,69 @@
 </div>
 
 <div class="marco redondear">
-	<table>
+<?php
+	$i = 0;
+	$total = count($marcas);
+?>
+	<table class="listado" border="1">
 		<tr>
-			<th>Seleccionar Marcas para Listado</th>
+			<th colspan="3">Seleccionar Marcas para Listado</th>
 		</tr>
-		@foreach($marcas as $m)
-			<tr>
-				<td>
-					<input id="{{$m->id}}" type="checkbox" value="{{$m->marca}}" onclick="javascript:agregar({{$m->id}},'{{$m->marca}}');"> {{$m->marca}}
-				</td>
-			</tr>
-		@endforeach
+
+		<tr>
+			<td>
+				<table>
+					@for ($i = 0; $i < 20; $i++)
+						<tr>
+							<td>
+								<input  id		="{{$marcas[$i]->id}}" 
+										type	="checkbox" 
+										value	="{{$marcas[$i]->marca}}" 
+										onclick	="javascript:agregar({{$marcas[$i]->id}},'{{$marcas[$i]->marca}}');">
+										<a href="javascript:$('#{{$marcas[$i]->id}}').click()">{{$marcas[$i]->marca}}</a>
+							</td>
+						</tr>
+					@endfor
+				</table>
+			</td>
+			<td>
+				<table>
+					@for ($i = 20; $i < 40; $i++)
+						<tr>
+							<td>
+								<input  id		="{{$marcas[$i]->id}}" 
+										type	="checkbox" 
+										value	="{{$marcas[$i]->marca}}" 
+										onclick	="javascript:agregar({{$marcas[$i]->id}},'{{$marcas[$i]->marca}}');">
+										<a href="javascript:$('#{{$marcas[$i]->id}}').click()">{{$marcas[$i]->marca}}</a>
+							</td>
+						</tr>
+					@endfor
+				</table>
+			</td>
+			<td>
+				<table class="top">
+					@for ($i = 40; $i < $total; $i++)
+						<tr>
+							<td>
+								<input  id		="{{$marcas[$i]->id}}" 
+										type	="checkbox" 
+										value	="{{$marcas[$i]->marca}}" 
+										onclick	="javascript:agregar({{$marcas[$i]->id}},'{{$marcas[$i]->marca}}');">
+										<a href="javascript:$('#{{$marcas[$i]->id}}').click()">{{$marcas[$i]->marca}}</a>
+							</td>
+						</tr>
+					@endfor
+				</table>
+			</td>
+
+		</tr>
+
 	</table>
 
 </div>
 
- <div id='listaautos' title='Lista'>
+ <div id='listado' title='Lista'>
       <div id="contenido">Cargando...</div>
  </div>
 

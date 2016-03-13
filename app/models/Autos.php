@@ -13,4 +13,16 @@ class Autos extends Eloquent {
 		$datos = DB::select($sql);
 		return $datos;
 	}
+
+	static public function listar($marcas)
+	{
+		$sql = "
+				SELECT * FROM autos
+				WHERE marca IN ($marcas)
+				ORDER BY marca, modelo, detalle
+		";
+
+		$datos = DB::select($sql);
+		return $datos;
+	}
 }
