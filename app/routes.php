@@ -47,6 +47,9 @@ Route::post('plan84',         'inicioControlador@plan84');
 Route::post('grabarconsulta', 'inicioControlador@grabarconsulta');
 Route::get('verconsultas',   'inicioControlador@verconsultas');
 
+Route::get('crearlistado', 'adminControlador@crearlistado');
+Route::post('verlistado','adminControlador@verlistadoautos');
+
 Route::group(array('before' => 'auth'), function(){
     Route::resource('inicio',       'generalControlador@inicio');
     Route::resource('caja',         'cajaControlador@inicio');

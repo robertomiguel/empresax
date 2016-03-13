@@ -93,6 +93,23 @@ $(document).ready(function() {
     }
     });
 
+    $('#listaautos' ).dialog({
+      position: { my: 'center', at: 'center', of: window },
+      resizable: false,
+    modal: true,
+      height: 600,
+      width: 600,
+      autoOpen: false,
+    buttons: {
+        Imprimir: function() {
+          $( this ).dialog( "close" );
+        },
+        Cerrar: function() {
+          $( this ).dialog( "close" );
+        }
+    }
+    });
+
 
 
 $('.ui-dialog').addClass('sombra');
@@ -180,3 +197,45 @@ function ingresar(){
 function plan84 () {
   $( "#plan84" ).dialog( "open" );
 }
+
+  function agregar(id, marca)
+  {
+    //$('#seleccion').html('<tr><td>'+$marca+'</td></tr>');
+
+    if (!$('#'+id)[0].checked ){
+      quitar(id);
+    } else {
+      $('#seleccion tr:last').after('<tr id=r'+id+'><td>'+marca+'</td></tr>');
+    }
+
+  }
+
+  function quitar(id)
+  {
+    $('#r'+id).remove();
+  }
+  function verlistado()
+  {
+    var listaid = '';
+    $("#seleccion tr").each(function() 
+      {
+          $this = $(this);
+          var firstName = $this.get(0).id.replace('r','');
+          
+          if (listaid=='')
+          {
+            listaid = firstName;
+          } else {
+            listaid = listaid + ',' + firstName;
+          }
+          
+      });
+      
+      $.post("verlistado",{
+        lista: listaid
+      },function(data){
+            //$('#contenido').html(data);
+            alert(data);
+            
+      });
+  }

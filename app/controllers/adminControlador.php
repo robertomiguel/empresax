@@ -5,10 +5,18 @@ class adminControlador extends BaseController {
 
     public function inicio()
     {
-    	//$sql = 'SELECT * FROM menu_general WHERE visible = ?';
-		$menu = menuGeneral::leer(); //DB::select($sql,array(1));
-		return json_encode($menu);
-    	return View::make('admin.inicio')->with('menu',$menu);
+    	return View::make('admin.inicio');
     }
 
+    public function crearlistado()
+    {
+    	$marcas = Autos::marcas();
+    	return View::make('admin.crearlistado')->with('marcas',$marcas);
+    }
+
+    public function verlistadoautos(){
+    	$lista = Input::get('lista');
+
+    	return $lista;
+    }
 }
