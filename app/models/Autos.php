@@ -29,7 +29,7 @@ class Autos extends Eloquent {
 	static public function listavendedor($marcas)
 	{
 		$sql = "
-				SELECT * FROM autos
+				SELECT id, marca, modelo, detalle, a0km, (a0km * 1.3) AS nominal, ((a0km * 1.3) / 84) AS cuota , moneda FROM autos
 				WHERE marca IN ($marcas) AND a0km > 0
 				ORDER BY marca, modelo, detalle
 		";

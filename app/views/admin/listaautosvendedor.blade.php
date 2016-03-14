@@ -36,7 +36,11 @@
 <thead>
 	<tr>
 		<th></th>
-		<th>0km</th>
+		<th>Fábrica</th>
+		<th>V. Nominal</th>
+		<th>Cuota</th>
+		<th>Adjudica</th>
+		<th>Gastos Admin.</th>
 	</tr>
 </thead>
 <tbody>
@@ -51,18 +55,20 @@
 			</tr>
 			<tr>
 				<th class="fmodelo">MODELO: {{$a->modelo}}</th>
-				<th>0km</th>
 			</tr>
 		@endif
 		@if ($marca_anterior == $a->marca && $modelo<>$modelo_anterior)
 			<tr>
 				<th class="fmodelo">MODELO: {{$a->modelo}}</th>
-				<th>0km</th>
 			</tr>
 		@endif
 			<tr>
-				<td>{{$a->detalle}}</td>
-				<td>{{intval($a->a0km)}}</td>
+				<td align="left">{{$a->detalle}}</td>
+				<td align="right">{{Formatos::moneda($a->a0km)}}</td>
+				<td align="right">{{Formatos::moneda($a->nominal)}}</td>
+				<td align="right">{{Formatos::moneda($a->cuota)}}</td>
+				<td align="right">{{Formatos::moneda($a->nominal / 2)}}</td>
+				<td align="right">{{Formatos::moneda($a->nominal * 0.03)}}</td>
 			</tr>
 		<?php
 			$marca_anterior = $a->marca;
