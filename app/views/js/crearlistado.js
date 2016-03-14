@@ -76,5 +76,10 @@ $(document).ready(function() {
 
   function imprimirlistado()
   {
-    window.location.href = "/imprimirlistado?lista=" + lista;
+    window.open("/imprimirlistado?lista=" + lista);
+  }
+
+function imprimirlistadovendedor()
+  {
+    window.open("/imprimirlistadovendedor?lista=" + lista);
   }

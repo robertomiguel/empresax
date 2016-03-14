@@ -25,4 +25,17 @@ class Autos extends Eloquent {
 		$datos = DB::select($sql);
 		return $datos;
 	}
+
+	static public function listavendedor($marcas)
+	{
+		$sql = "
+				SELECT * FROM autos
+				WHERE marca IN ($marcas) AND a0km > 0
+				ORDER BY marca, modelo, detalle
+		";
+
+		$datos = DB::select($sql);
+		return $datos;
+	}
+
 }

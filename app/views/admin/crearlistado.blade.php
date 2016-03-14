@@ -43,6 +43,7 @@
 		</tr>
 	</table>
 	<button onclick="verlistado()">Ver Listado</button>
+	<button onclick="imprimirlistadovendedor()">Ver Listado Vendedor</button>
 </div>
 
 <div class="marco redondear">
