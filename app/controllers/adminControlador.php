@@ -49,7 +49,9 @@ class adminControlador extends BaseController {
     public function imprimirlistadovendedor()
     {
         $lista = Input::get('lista');
+        $membrete = Input::get('membrete');
+
         $autos = Autos::listavendedor($lista);
-        return View::make('admin.listaautosvendedor')->with('autos',$autos);
+        return View::make('admin.listaautosvendedor')->with('autos',$autos)->with('membrete', $membrete);
     }
 }

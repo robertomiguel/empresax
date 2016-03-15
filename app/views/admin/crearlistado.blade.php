@@ -42,8 +42,10 @@
 			<td>Seleccionados</td>
 		</tr>
 	</table>
-	<button onclick="verlistado()">Ver Listado</button>
-	<button onclick="imprimirlistadovendedor()">Ver Listado Vendedor</button>
+	<br>
+	<button onclick="verlistado()">Ver Listado</button><br><br>
+	<button onclick="imprimirlistadovendedor(0)">Ver Listado Vendedor</button><br><br>
+	<button onclick="imprimirlistadovendedor(1)">Ver Listado Vendedor (Con Membrete)</button><br>
 </div>
 
 <div class="marco redondear">

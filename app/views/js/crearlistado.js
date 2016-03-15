@@ -49,7 +49,21 @@ $(document).ready(function() {
   }
   function verlistado()
   {
-    var listaid = "''";
+      genlista();
+      $('#listado').dialog('open');
+      $('#listado').html('Generando listado...');
+
+      $.post("verlistado",{
+        lista: listaid
+      },function(data){
+            $('#listado').html(data);
+            //alert(data);
+      });
+  }
+
+  function genlista()
+  {
+        var listaid = "''";
     $("#seleccion tr").each(function() 
       {
           $this = $(this);
@@ -63,15 +77,7 @@ $(document).ready(function() {
           }
           
       });
-      $('#listado').dialog('open');
-      $('#listado').html('Generando listado...');
       lista = listaid;
-      $.post("verlistado",{
-        lista: listaid
-      },function(data){
-            $('#listado').html(data);
-            //alert(data);
-      });
   }
 
   function imprimirlistado()
@@ -79,7 +85,14 @@ $(document).ready(function() {
     window.open("/imprimirlistado?lista=" + lista);
   }
 
-function imprimirlistadovendedor()
+function imprimirlistadovendedor(m)
   {
-    window.open("/imprimirlistadovendedor?lista=" + lista);
+    genlista();
+
+    if (m==0) {
+      window.open("/imprimirlistadovendedor?membrete=0&lista=" + lista);
+    } else {
+      window.open("/imprimirlistadovendedor?membrete=1&lista=" + lista);
+    }
+
   }
