@@ -10,3 +10,18 @@ CREATE TABLE `consulta` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `consulta_id_unique` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `parametros_listados` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `incremento_nominal` decimal(5,2) DEFAULT NULL,
+  `gastos_admin` decimal(5,2) DEFAULT NULL,
+  `adjudica` decimal(5,2) DEFAULT NULL,
+  `plan_cuotas` int(11) DEFAULT NULL,
+  `dolar` decimal(5,2) DEFAULT NULL`incremento_fabrica` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO parametros_listados
+	(incremento_nominal,	gastos_admin,	adjudica,	plan_cuotas,	dolar,	incremento_fabrica)
+VALUES
+	(1.3,			0.03,		0.5,		84,		15,	1);

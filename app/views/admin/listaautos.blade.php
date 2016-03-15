@@ -102,7 +102,7 @@
 				<th>2002</th>
 			</tr>
 		@endif
-		<tr>
+		<tr id="{{$a->id}}">
 			<td>{{$a->detalle}}</td>
 				<td>{{(intval($a->a0km)==0?'':intval($a->a0km))}}</td>
 				<td>{{(intval($a->a2015)==0?'':intval($a->a2015))}}</td>

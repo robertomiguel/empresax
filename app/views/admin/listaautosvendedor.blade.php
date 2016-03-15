@@ -107,11 +107,11 @@
 		@endif
 			<tr>
 				<td align="left">{{$a->detalle}}</td>
-				<td align="right">{{Formatos::moneda($a->a0km)}}</td>
+				<td align="right">{{Formatos::moneda($a->costo)}}</td>
 				<td align="right">{{Formatos::moneda($a->nominal)}}</td>
 				<td align="right">{{Formatos::moneda($a->cuota)}}</td>
-				<td align="right">{{Formatos::moneda($a->nominal / 2)}}</td>
-				<td align="right">{{Formatos::moneda($a->nominal * 0.03)}}</td>
+				<td align="right">{{Formatos::moneda($a->nominal * $adjudica)}}</td>
+				<td align="right">{{Formatos::moneda($a->nominal * $gastos_admin)}}</td>
 			</tr>
 		<?php
 			$marca_anterior = $a->marca;

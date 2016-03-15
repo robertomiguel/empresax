@@ -28,10 +28,19 @@ class Autos extends Eloquent {
 
 	static public function listavendedor($marcas)
 	{
+		$parm = Parametroslistados::todos();
+		$incr_nominal = $parm[0]->incremento_nominal;
+		$incr_fabrica = $parm[0]->incremento_fabrica;
+		$cuotas		= $parm[0]->plan_cuotas;
 		$sql = "
-				SELECT id, marca, modelo, detalle, a0km, (a0km * 1.3) AS nominal, ((a0km * 1.3) / 84) AS cuota , moneda FROM autos
+				SELECT id, marca, modelo, detalle,
+						(a0km * $incr_fabrica) AS costo,
+						(a0km * $incr_nominal) AS nominal,
+						((a0km * $incr_nominal) / $cuotas) AS cuota ,
+						moneda
+				 FROM autos
 				WHERE marca IN ($marcas) AND a0km > 0
-				ORDER BY marca, modelo, detalle
+				ORDER BY marca, modelo, a0km
 		";
 
 		$datos = DB::select($sql);

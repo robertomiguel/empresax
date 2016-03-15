@@ -50,8 +50,13 @@ class adminControlador extends BaseController {
     {
         $lista = Input::get('lista');
         $membrete = Input::get('membrete');
-
+        $parm = Parametroslistados::todos();
+        $adjudica = $parm[0]->adjudica;
+        $gastos_admin = $parm[0]->gastos_admin;
         $autos = Autos::listavendedor($lista);
-        return View::make('admin.listaautosvendedor')->with('autos',$autos)->with('membrete', $membrete);
+        return View::make('admin.listaautosvendedor')->with('autos',$autos)
+        											 ->with('membrete', $membrete)
+        											 ->with('adjudica',$adjudica)
+        											 ->with('gastos_admin',$gastos_admin);
     }
 }
