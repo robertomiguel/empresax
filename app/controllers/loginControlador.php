@@ -4,8 +4,8 @@ class LoginControlador extends BaseController {
     public function acceso()
     {
     $datos = array(
-            'usr_usuario' => Input::get('email'),
-            'usr_clave'   => Input::get('clave')
+            'usr_nombre' => Input::get('nombre'),
+            'usr_clave'  => Input::get('clave')
         );
 
 	if (Auth::attempt($datos, false))  {
@@ -16,10 +16,12 @@ class LoginControlador extends BaseController {
 
       	  return Redirect::to('/')->withFlashMessage('login ok, pero no hay nada =(');
 */
-          return Redirect::to('inicio');
+          return Redirect::to('verplan');
+
+          //return '<br>login ok';
       } 
-       
-      return Redirect::to('/')->withFlashMessage('E-Mail y/o Contraseña incorrecta.');
+        return 'login fail';
+      //return Redirect::to('/')->withFlashMessage('E-Mail y/o Contraseña incorrecta.');
 
     }
 

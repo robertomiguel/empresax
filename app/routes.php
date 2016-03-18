@@ -53,7 +53,9 @@ Route::get('imprimirlistado', 'adminControlador@imprimirlistado');
 Route::get('imprimirlistadovendedor', 'adminControlador@imprimirlistadovendedor');
 
 Route::group(array('before' => 'auth'), function(){
+    Route::resource('verplan', 'usuarioControlador@verplan');
     Route::resource('usuario', 'usuarioControlador');
+    Route::resource('admin',   'adminControlador@inicio');
 /*
     Route::resource('inicio',       'generalControlador@inicio');
     Route::resource('caja',         'cajaControlador@inicio');
@@ -100,7 +102,8 @@ Route::group(array('before' => 'auth'), function(){
 //Route::controller('listado', 'prueba');
 
 //--- Login
-Route::post('entrar', 'loginControlador@acceso');
+//Route::post('entrar', 'loginControlador@acceso');
+Route::get('entrar', 'loginControlador@acceso');
 Route::get('salir', 'loginControlador@salir');
 
 //--- cargar usuario de prueba

@@ -7,21 +7,17 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class Usuario extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
-<<<<<<< HEAD
+
   
-  protected $connection = 'universal';
-  protected $table = 'suscriptor';
-=======
+  protected $connection  = 'universal';
+  protected $table       = 'suscriptor';
+	protected $primaryKey  = 'id';
+	public    $timestamps  = false;
 
-  protected $connection= 'universal';
-	protected $table = 'suscriptor';
->>>>>>> origin/master
-	protected $primaryKey = 'id';
-	public $timestamps = false;
+	protected $hidden = array('usr_nombre', 'usr_recordar_token');
 
-	protected $hidden = array('usr_clave', 'usr_recordar_token');
-
-  static public function actualizaFechaIp(){
+  static public function actualizaFechaIp()
+  {
 /*
       $nro_persona = Auth::user()->nro_persona;
       //$ip = Request::getClientIp();
@@ -50,7 +46,7 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
   
   public function getAuthPassword()
   {
-    return $this->usr_clave;
+    return $this->usr_nombre;
   } 
   
   public function getRememberToken()
@@ -70,6 +66,6 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
   
   public function getReminderEmail()
   {
-    return $this->usr_usuario;
+    return $this->usr_nombre;
   }
 }
