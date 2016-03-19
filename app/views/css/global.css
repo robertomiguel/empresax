@@ -152,3 +152,8 @@ body {
     border-collapse: separate;
 }
 
+.borde {
+    border: 2px solid
+            background: white;
+            border: #4395E1 solid 2px;
+}            

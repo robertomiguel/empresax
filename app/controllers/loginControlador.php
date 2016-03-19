@@ -16,11 +16,13 @@ class LoginControlador extends BaseController {
 
       	  return Redirect::to('/')->withFlashMessage('login ok, pero no hay nada =(');
 */
-          return Redirect::to('verplan');
+        if(Auth::user()->usr_grupo == 1 ) {
+          return 'verplan';//Redirect::to('verplan');
+        }
 
           //return '<br>login ok';
       } 
-        return 'login fail';
+        return 'no';
       //return Redirect::to('/')->withFlashMessage('E-Mail y/o Contraseña incorrecta.');
 
     }

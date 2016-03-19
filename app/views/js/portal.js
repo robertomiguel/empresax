@@ -65,7 +65,21 @@ $(document).ready(function() {
           $( this ).dialog( "close" );
         },
         Ingresar: function() {
-              alert('Usuario y/o contraseña incorrecta');
+                var nombre = $('#usuario').val();
+                var clave = $('#pass').val();
+                $.post("/entrar",{
+                  nombre : nombre,
+                  clave  : clave
+                },
+                function(data){
+                  if (data=='no') {
+                    alert('Usuario y/o Contraseña Incorrecta.');
+                  } else {
+                    window.location = data;
+                  }
+                });
+                
+
               $( this ).dialog( "close" );
             }
     }
@@ -173,6 +187,7 @@ function ingresar(){
   $('#usuario').val('');
   $('#pass').val('');
   $( "#ingresar" ).dialog( "open" );
+
 }
 
 function plan84 () {

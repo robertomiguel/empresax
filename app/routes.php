@@ -102,8 +102,8 @@ Route::group(array('before' => 'auth'), function(){
 //Route::controller('listado', 'prueba');
 
 //--- Login
-//Route::post('entrar', 'loginControlador@acceso');
-Route::get('entrar', 'loginControlador@acceso');
+Route::post('entrar', 'loginControlador@acceso');
+//Route::get('entrar', 'loginControlador@acceso');
 Route::get('salir', 'loginControlador@salir');
 
 //--- cargar usuario de prueba

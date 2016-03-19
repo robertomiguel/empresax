@@ -11,6 +11,7 @@
 		font-size: 12px;
 		background: white;
 		padding: 3px;
+		min-width: 150px;
 	}
 	.datos td {
 		color: blue;
@@ -23,10 +24,22 @@
 		/* scroll-behavior: hidden;
 		max-height: 600px; */
 		text-align: center;
+		height: 600px;
+		overflow: auto;
+		padding-left: 50px;
+		font-size: 12px;
+	}
+	.infoSus {
+		width: 100%;
+	}
+	.infoSus td {
+		background: white;
 	}
 	.cuotas {
 		font-size: 15px;
-		min-width: 500px
+	}
+	.cuotas tr:nth-child(odd) {
+		background: white
 	}
 </style>
 
@@ -38,6 +51,7 @@
 		<td>
 			<table class="datos redondear">
 				@foreach ($cliente as $info)
+			
 					<tr>
 						<caption><strong>Datos Suscriptor</strong></caption>
 					</tr>
@@ -57,14 +71,36 @@
 					<tr><td>{{Formatos::capital($info->provincia)}}</td></tr>
 					<tr><th>Telefono</th></tr>
 					<tr><td>{{$info->telefono}}</td></tr>
+					<tr><td><br>
+							<a href="salir" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+								<span class="ui-button-text">Desconectar</span>
+							</a>
+							<br>
+					</td></tr>
 				@endforeach
 			</table>
 		</td>		
 		<td>
 			<div class="suscripciones">
-				<table class="cuotas">
+				<table class="infoSus" border="1">
 					<tr>
-						<caption><strong>Mis Suscripciones</strong></caption>
+						<caption><strong>Suscripción</strong></caption>
+					</tr>
+					<tr>
+						<th>Nro Suscripción:</th><td>{{$suscripciones[0]->nro}}</td>
+						<th>Fecha Alta:</th><td>{{Formatos::fecha($suscripciones[0]->fecha)}}</td>
+					</tr>
+					<tr>
+						<th>PLAN:</th><td colspan="3">{{$suscripciones[0]->plan}}</td>
+					</tr>
+					<tr>
+						<th>Cuotas</th><td>{{$suscripciones[0]->cantCuotas}}</td>
+						<th>Importe</th><td>{{Formatos::moneda($suscripciones[0]->valorCuota)}}</td>
+					</tr>
+				</table>
+				<table class="cuotas" border="1">
+					<tr>
+						<caption><strong>Detalle de Cuotas</strong></caption>
 					</tr>
 					@if (count($suscripciones)==0)
 						<tr>
@@ -72,10 +108,10 @@
 						</tr>
 					@else
 						<tr>
-							<th>Nro Cuota</th>
-							<th>Importe</th>
-							<th>Período</th>
-							<th>Estado</th>
+							<th width="40px">Cuota</th>
+							<th width="100px">Importe</th>
+							<th width="150px">Período</th>
+							<th width="80px">Estado</th>
 						</tr>
 						@foreach($suscripciones as $sus)
 							<tr>

@@ -10,11 +10,11 @@ class suscripcion extends Eloquent {
 	static public function suscripciones($id)
 	{
 		$sql = "
-				SELECT 	suscripcion.fecha_alta,	
-						suscripcion.nro, 
-						suscripcion.plan, 
-						cant_cuotas,
-						valor_cuota,
+				SELECT 	suscripcion.fecha_alta AS fecha,	
+						suscripcion.nro AS nro, 
+						suscripcion.plan AS plan, 
+						cant_cuotas AS cantCuotas,
+						valor_cuota AS valorCuota,
 
 						cuota.nro_cuota AS cuota, 
 						cuota.importe AS importe, 
