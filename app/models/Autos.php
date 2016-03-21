@@ -28,7 +28,7 @@ class Autos extends Eloquent {
 
 	static public function listavendedor($marcas)
 	{
-		$parm = Parametroslistados::todos();
+		$parm = ParametrosListados::todos();
 		$incr_nominal = $parm[0]->incremento_nominal;
 		$incr_fabrica = $parm[0]->incremento_fabrica;
 		$cuotas		= $parm[0]->plan_cuotas;
