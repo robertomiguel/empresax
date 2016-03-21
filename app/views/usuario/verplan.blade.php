@@ -17,8 +17,8 @@
 		color: blue;
 	}
 	.datos caption {
-		background: blue;
-		color: white;
+		background: #E2DDFF;
+		color: black;
 	}
 	.suscripciones {
 		/* scroll-behavior: hidden;
@@ -40,6 +40,15 @@
 	}
 	.cuotas tr:nth-child(odd) {
 		background: white
+	}
+	.cuotas th {
+		background: #E2DDFF;
+	}
+	.rojo {
+		color: red;
+	}
+	.verde {
+		color: green;
 	}
 </style>
 
@@ -87,15 +96,15 @@
 						<caption><strong>Suscripción</strong></caption>
 					</tr>
 					<tr>
-						<th>Nro Suscripción:</th><td>{{$suscripciones[0]->nro}}</td>
-						<th>Fecha Alta:</th><td>{{Formatos::fecha($suscripciones[0]->fecha)}}</td>
+						<th>Nro Suscripción</th><td><strong>{{$suscripciones[0]->nro}}</strong></td>
+						<th>Fecha Alta</th><td><strong>{{Formatos::fecha($suscripciones[0]->fecha)}}</strong></td>
 					</tr>
 					<tr>
-						<th>PLAN:</th><td colspan="3">{{$suscripciones[0]->plan}}</td>
+						<th>PLAN</th><td colspan="3"><strong>{{$suscripciones[0]->plan}}</strong></td>
 					</tr>
 					<tr>
-						<th>Cuotas</th><td>{{$suscripciones[0]->cantCuotas}}</td>
-						<th>Importe</th><td>{{Formatos::moneda($suscripciones[0]->valorCuota)}}</td>
+						<th>Cuotas</th><td><strong>{{$suscripciones[0]->cantCuotas}}</strong></td>
+						<th>Importe</th><td><strong>{{Formatos::moneda($suscripciones[0]->valorCuota)}}</strong></td>
 					</tr>
 				</table>
 				<table class="cuotas" border="1">
@@ -119,9 +128,9 @@
 								<td align="right">{{Formatos::moneda($sus->importe)}}</td>
 								<td>{{Formatos::periodo($sus->periodo)}}</td>
 								<td>@if ($sus->pago)
-										<span>Pagado</span>
+										<span class="verde"><strong>Pagado</strong></span>
 									@else
-										<span>Pendiente</span>
+										<span class="rojo"><strong>Pendiente</strong></span>
 									@endif</td>
 							</tr>
 						@endforeach

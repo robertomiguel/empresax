@@ -16,7 +16,7 @@ class Suscriptor extends Eloquent {
                         localidad.nombre AS localidad,
                         provincia.nombre AS provincia,
 				    	domicilio AS domicilio,
-				    	(tel + ' / ' + celular) AS telefono,
+				    	CONCAT(tel, ' ', celular) AS telefono,
 				    	created_at AS fecha_alta,
 				    	suscriptor.nombre as nombre,
                         suscriptor.apellido as apellido
