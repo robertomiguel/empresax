@@ -50,7 +50,7 @@ class adminControlador extends BaseController {
     {
         $lista = Input::get('lista');
         $membrete = Input::get('membrete');
-        $parm = Parametroslistados::todos();
+        $parm = ParametrosListados::todos();
         $adjudica = $parm[0]->adjudica;
         $gastos_admin = $parm[0]->gastos_admin;
         $autos = Autos::listavendedor($lista);
