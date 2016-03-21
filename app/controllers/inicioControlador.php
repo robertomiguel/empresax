@@ -54,4 +54,12 @@ class InicioControlador extends BaseController {
 		}
 		return View::make('admin.verconsultas')->with('consultas', $consultas);
 	}
+
+	public function buscar() {
+		$buscar = Input::get('buscar');
+
+		$resultado = Articulo::buscar($buscar);
+
+		return View::make('portal.buscar')->with('resultados', $resultado);
+	}
 }

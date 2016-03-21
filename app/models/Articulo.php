@@ -47,7 +47,7 @@ class Articulo extends Eloquent {
 	}
 
 		static public function buscar($buscar){
-			$sql = "SELECT plan, descripcion, cuota1, foto1, foto2, foto3, foto4, marca.nombre as marca, marca.logo as logo
+			$sql = "SELECT plan, cuota1, marca.nombre as marca, marca.logo as logo, rubro.nombre as rubro
 					  FROM articulo
 					  JOIN marca ON
 					  		(marca.id = articulo.marca_id)

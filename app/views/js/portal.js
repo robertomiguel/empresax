@@ -187,9 +187,25 @@ function ingresar(){
   $('#usuario').val('');
   $('#pass').val('');
   $( "#ingresar" ).dialog( "open" );
-
 }
 
 function plan84 () {
   $( "#plan84" ).dialog( "open" );
+}
+
+function buscar() {
+  var buscar = $('#buscar').val();
+  if (buscar=='') {
+    alert('Ingrese un modelo');
+    return;
+  }
+  $( ".ui-dialog-title" ).html('Buscar');
+  $( "#ventana" ).dialog( "open" );
+  $.post("buscar",{
+    buscar : buscar
+  },
+  function(data){
+    $('#contenido').html(data);
+  });
+
 }
