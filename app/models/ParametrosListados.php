@@ -9,6 +9,7 @@ class ParametrosListados extends Eloquent {
 	{
 		$sql = "SELECT incremento_nominal,	gastos_admin,	adjudica,	plan_cuotas,	dolar, incremento_fabrica
 				  FROM parametros_listados LIMIT 1";
+				  
 		$datos = DB::select($sql);
 		return $datos;
 	}

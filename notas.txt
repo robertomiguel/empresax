@@ -17,7 +17,8 @@ CREATE TABLE `parametros_listados` (
   `gastos_admin` decimal(5,2) DEFAULT NULL,
   `adjudica` decimal(5,2) DEFAULT NULL,
   `plan_cuotas` int(11) DEFAULT NULL,
-  `dolar` decimal(5,2) DEFAULT NULL`incremento_fabrica` decimal(5,2) DEFAULT NULL,
+  `dolar` decimal(5,2) DEFAULT NULL,
+  `incremento_fabrica` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
