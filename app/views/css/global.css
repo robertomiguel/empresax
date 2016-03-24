@@ -28,7 +28,7 @@ body {
             border-radius: 25px;
         }
 
-.marcas a:hover {background: #615883; color: white;}
+.marcas a:hover {background: #827E92; color: white;}
 
 .rubros {text-align: center;
          vertical-align: center;
@@ -36,6 +36,7 @@ body {
          padding: 10px;
          border-collapse: separate;
         }
+
 .rubros a {text-decoration: none;
             border: #4395E1 solid 2px;
             background: white;
@@ -46,7 +47,7 @@ body {
             border-radius: 25px;
         }
 
-.rubros a:hover {background: #615883; color: white;}
+.rubros a:hover {background: #827E92; color: white;}
 
 .buscar {width: 160px}
 

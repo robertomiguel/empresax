@@ -1,15 +1,15 @@
 $(document).ready(function() {
    $('.imagenes').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-});
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  });
 	
 	  $('#ventana' ).dialog({
       position: { my: 'center', at: 'center', of: window },
       resizable: false,
-	  modal: true,
+	    modal: true,
       height: 655,
       width: 800,
       autoOpen: false,
@@ -31,7 +31,7 @@ $(document).ready(function() {
     $('#consultar' ).dialog({
       position: { my: 'center', at: 'center', of: window },
       resizable: false,
-    modal: true,
+      modal: true,
       height: 400,
       width: 500,
       autoOpen: false,
@@ -56,7 +56,7 @@ $(document).ready(function() {
     $('#ingresar' ).dialog({
       position: { my: 'center', at: 'center', of: window },
       resizable: false,
-    modal: true,
+      modal: true,
       height: 220,
       width: 400,
       autoOpen: false,
@@ -65,30 +65,15 @@ $(document).ready(function() {
           $( this ).dialog( "close" );
         },
         Ingresar: function() {
-                var nombre = $('#usuario').val();
-                var clave = $('#pass').val();
-                $.post("/entrar",{
-                  nombre : nombre,
-                  clave  : clave
-                },
-                function(data){
-                  if (data=='no') {
-                    alert('Usuario y/o Contraseña Incorrecta.');
-                  } else {
-                    window.location = data;
-                  }
-                });
-                
-
-              $( this ).dialog( "close" );
-            }
+          entrar();
+        }
     }
     });
 
     $('#plan84' ).dialog({
       position: { my: 'center', at: 'center', of: window },
       resizable: false,
-    modal: true,
+      modal: true,
       height: 655,
       width: 800,
       autoOpen: false,
@@ -107,6 +92,18 @@ $(document).ready(function() {
     }
     });
 
+  $("#buscar").keyup(function(event) {
+    if (event.which==13) { buscar(); }
+  });
+
+   $('#usuario').keyup(function(event) {
+    if (event.which==13) { $('#pass').focus(); }
+  });
+
+   $('#pass').keyup(function(event) {
+    if (event.which==13) { entrar(); }
+  });
+ 
   $('.ui-dialog').addClass('sombra');
 });
 
@@ -207,5 +204,24 @@ function buscar() {
   function(data){
     $('#contenido').html(data);
   });
+
+}
+
+function entrar() {
+  var nombre = $('#usuario').val();
+  var clave = $('#pass').val();
+  
+  $.post("/entrar",{
+      nombre : nombre,
+      clave  : clave
+    },
+    function(data) {
+      if (data=='no') {
+        alert('Usuario y/o Contraseña Incorrecta.');
+      } else {
+      window.location = data;
+    }
+  });
+  $('#ingresar').dialog( "close" );
 
 }
