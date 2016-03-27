@@ -15,17 +15,20 @@
         <a href="" ng-click="descargarexcel(total)">Descargar EXCEL</a>
         <br>
         Nombre : <input ng-model="buscar.nombre" />
+        DNI : <input ng-model="buscar.dni" />
         Localidad : <input ng-model="buscar.localidad" />
         Estado : <input ng-model="buscar.estado" /> 
-        Período: <input ng-model="buscar.fecha_alta" />
+        Período : <input ng-model="buscar.fecha_alta" />
+        Nro. Sus : <input ng-model="buscar.nro" />
+        Plan : <input ng-model="buscar.plan" />
 
         <table border="1" ng-init="importeTotal = 0">
             <tr>
                 <td ng-click="orderByMe('localidad')">Suscriptor</td>
                 <td>Suscripciones</td>
             </tr>
-            <tr ng-repeat="l in listado | orderBy:myOrderBy | filter:buscar | filter:query as total" id="{{l.suscripcion_id}}" 
-              >
+            <tr ng-repeat="l in listado | orderBy:myOrderBy | filter:buscar | filter:query as total" ng-dblclick="editar($index)"
+               class="seleccion">
                 <td>
                     <table class="datosCliente" style="width: 100%">
                         <tr>

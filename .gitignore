@@ -9,10 +9,6 @@
 #.env.php
 .DS_Store
 Thumbs.db
-www/js/*.js
-www/css/*.css
-www/videos/
 app/config/database.php
 temp/views/
 temp/logs/
-www/img/titulo.png
