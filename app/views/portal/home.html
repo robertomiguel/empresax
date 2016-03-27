@@ -4,15 +4,20 @@
         <meta charset="UTF-8" />
         <script type="text/javascript" src="js/alasql.min.js"></script>
         <script type="text/javascript" src="js/xlsx.core.min.js"></script>
-		<script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/ngDialog.min.js"></script>
         <script type="text/javascript" src="js/home.js"></script>
+        <link rel="stylesheet" href="/css/ngDialog.min.css">
+        <link rel="stylesheet" href="/css/ngDialog-theme-default.css">
         <link rel="stylesheet" href="/css/global.css">
+
 </head>
 <body>
     
     <div ng-app="myApp" ng-controller="myCtrl" class="marco sombra" id="exportable">
         <a href="" ng-click="cargar()">Cargar Clientes</a>
         <a href="" ng-click="descargarexcel(total)">Descargar EXCEL</a>
+        <a href="" ng-click="ventana()">ventana</a>
         <br>
         Nombre : <input ng-model="buscar.nombre" />
         DNI : <input ng-model="buscar.dni" />
@@ -82,6 +87,27 @@
                 <td>Total de lineas: {{total.length}}</td>
         </table>
     </div>
-
+<div hidden="" id="editarsocio">
+    <div>
+    <table>
+        <tr>
+            <td>Apellido</td><td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Nombre</td><td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>DNI</td><td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Fecha Nac.</td><td><input type="text"></td>
+        </tr>
+        <tr>
+            <td><button>Grabar</button></td>
+            <td><button>Cancelar</button></td>
+        </tr>
+    </table>
+    </div>
+</div>
 </body>
 </html>

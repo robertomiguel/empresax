@@ -1,4 +1,4 @@
-var app = angular.module('myApp', [])
+var app = angular.module('myApp', ['ngDialog'])
   .filter('capital', function() {
     return function(input, all) {
       var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
@@ -22,7 +22,7 @@ var app = angular.module('myApp', [])
   
   ;
 
-app.controller('myCtrl', function($scope, $http) {
+app.controller('myCtrl', function($scope, $http, ngDialog) {
 
     $scope.cargar = function() {
         $http.post("/listadoctb")
@@ -53,5 +53,10 @@ app.controller('myCtrl', function($scope, $http) {
 
     $scope.editar = function(i) {
         alert ($scope.total[i]['nombre']);
+    }
+
+    $scope.ventana = function() {
+        var html = angular.element(editarsocio).html();
+        ngDialog.open({ template: html, plain : true });
     }
 });
