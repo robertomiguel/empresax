@@ -48,6 +48,10 @@ Route::post('grabarconsulta', 'inicioControlador@grabarconsulta');
 Route::get('verconsultas',    'inicioControlador@verconsultas');
 Route::post('buscar',         'inicioControlador@buscar');
 
+Route::get('informe',    'suscripcionControlador@informe');
+Route::post('clientes',   'agricolaControlador@clientes');
+Route::post('listadoctb', 'suscripcionControlador@listado');
+
 Route::get('crearlistado', 'adminControlador@crearlistado');
 Route::post('verlistado','adminControlador@verlistadoautos');
 Route::get('imprimirlistado', 'adminControlador@imprimirlistado');

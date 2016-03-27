@@ -33,4 +33,30 @@ class Suscriptor extends Eloquent {
 		return $datos;
 	}
 
+	static public function listaClientes()
+	{
+		$sql = "
+				SELECT
+						suscriptor.id AS id,
+						suscriptor.dni AS dni,
+                        localidad.nombre AS localidad,
+                        provincia.nombre AS provincia,
+				    	domicilio AS domicilio,
+				    	CONCAT(tel, ' ', celular) AS telefono,
+				    	created_at AS fecha_alta,
+				    	suscriptor.nombre as nombre,
+                        suscriptor.apellido as apellido
+		    	FROM suscriptor
+				JOIN localidad ON
+					(localidad.id = localidad_id)
+				JOIN provincia ON
+					(provincia.id = localidad.provincia_id)
+				ORDER BY apellido
+		";
+
+		$datos = DB::connection('universal')->select($sql);
+
+		return $datos;
+	}
+
 }

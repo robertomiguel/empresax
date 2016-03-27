@@ -33,4 +33,39 @@ class suscripcion extends Eloquent {
 		return $datos;
 	}
 
+	static public function listado(){
+		$sql = "
+			Select 
+				concat(suscriptor.apellido, ', ', suscriptor.nombre) as nombre, suscriptor.dni, suscriptor.nacimiento, suscriptor.domicilio,
+		        localidad.nombre as localidad, provincia.nombre as provincia,
+				suscripcion.id as suscripcion_id, suscripcion.fecha_alta, IF(suscripcion.fecha_baja is null,'ACTIVO','BAJA') as estado,
+		        suscripcion.nro, suscripcion.plan, suscripcion.valor_cuota,
+		        (Select sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id) as nominal,
+		        (Select sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id And cuota.fpago is not null) as pagado,
+		        
+		        Concat(
+		        Convert(
+		        (
+		        (100 / ( Select Sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id) ) *
+				( Select Sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id And cuota.fpago is not null) 
+		        )
+				 , signed), '%')
+		        as x100
+        
+			From suscripcion
+			Join suscriptor On
+					(suscriptor.id = suscripcion.suscriptor_id)
+			Join localidad On
+					(localidad.id = suscriptor.localidad_id)
+			Join provincia On
+					(provincia.id = localidad.provincia_id)
+			Order By suscriptor.apellido
+		";
+
+		$datos = DB::connection('universal')->select($sql);
+
+		return $datos;
+
+	}
+
 }
