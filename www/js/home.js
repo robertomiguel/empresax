@@ -25,8 +25,12 @@ var app = angular.module('myApp', ['ngDialog'])
  return function(input)
  {
   if(input == null){ return ""; } 
- 
-  var _date = $filter('date')(new Date(input), 'dd MMM YYYY');
+  var fecha = new Date(input);
+  var dia = fecha.getDate();
+  var mes = fecha.getMonth();
+  var anio = fecha.getFullYear();
+  var _date = dia +'-'+mes+'-'+anio;
+  //var _date = $filter('date')(new Date(input), 'dd MMM YYYY');
  
   return _date.toUpperCase();
 

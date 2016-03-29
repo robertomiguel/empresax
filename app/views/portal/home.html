@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                             <td align="left">DNI: <strong>{{(l.dni | number).split(',').join('.')}}</strong></td>
-                            <td align="right">FNAC: <strong>{{l.nacimiento}}</strong></td>
+                            <td align="right">FNAC: <strong>{{l.nacimiento | date}}</strong></td>
                         </tr>
                         <tr>
                             <td colspan="2" align="left">Dom: <strong>{{l.domicilio | capital:true}}</strong></td>
@@ -58,7 +58,7 @@
                     <table class="datosSuscripcion" style="width: 100%">
                         <tr>
                             <td align="left">Nro Sus: <strong>{{l.nro}}</strong></td>
-                            <td align="center">Alta: <strong>{{l.fecha_alta}}</strong></td>
+                            <td align="center">Alta: <strong>{{l.fecha_alta | date}}</strong></td>
                             <td align="right">Estado: <strong>{{l.estado}}</strong></td>
                         </tr>
                         <tr>
@@ -80,15 +80,12 @@
                 </td>
             </tr>
             <tr>
-                <td>Total Cuota: {{listado|sumar:'valor_cuota'| currency}}</td>
+                <td></td>
                 <td>Total Cuota: {{sumarCampo(total,'valor_cuota') | currency}}</td>
             </tr>
                 <td></td>
                 <td>Total de lineas: {{total.length}}</td>
         </table>
     </div>
-<p>
-    {{apellido}}
-</p>
 </body>
 </html>
