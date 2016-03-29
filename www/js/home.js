@@ -19,7 +19,19 @@ var app = angular.module('myApp', ['ngDialog'])
             return sum;
         };
     })
-  
+
+  .filter('date', function($filter)
+{
+ return function(input)
+ {
+  if(input == null){ return ""; } 
+ 
+  var _date = $filter('date')(new Date(input), 'dd MMM YYYY');
+ 
+  return _date.toUpperCase();
+
+ };
+})
   ;
 
 app.controller('myCtrl', function($scope, $http, ngDialog) {
@@ -51,8 +63,29 @@ app.controller('myCtrl', function($scope, $http, ngDialog) {
         
     }
 
-    $scope.editar = function(i) {
-        alert ($scope.total[i]['nombre']);
+
+    $scope.editar = function(indice) {
+        $scope.i = indice;
+        ngDialog.open({ template: 'editarCliente',
+                        controller: 'myCtrl',
+                            scope: $scope});
+    }
+
+    $scope.grabar = function(){
+        $http({
+          method: 'post',
+          url: 'grabarCliente',
+          data: {cliente:$scope.total[$scope.i]}
+        }).then(function successCallback(response) {
+            alert('Respuesta: ' + response.data);
+          }, function errorCallback(response) {
+            alert('Error al enviar: ' + response.data);
+          });
+        ngDialog.close();
+    }
+
+    $scope.cerrar = function(){
+        ngDialog.close();
     }
 
     $scope.ventana = function() {

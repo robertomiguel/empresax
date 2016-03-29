@@ -51,6 +51,37 @@ Route::post('buscar',         'inicioControlador@buscar');
 Route::get('informe',    'suscripcionControlador@informe');
 Route::post('clientes',   'agricolaControlador@clientes');
 Route::post('listadoctb', 'suscripcionControlador@listado');
+Route::get('editarCliente', function(){
+  return File::get(app_path().'/views/admin/editarCliente.html');
+});
+Route::post('grabarCliente', function(){
+  $cliente = Input::get('cliente','naranja');
+  $cliente_id = $cliente['cliente_id'];
+  $apellido = $cliente['apellido'];
+  $nombre = $cliente['nombre'];
+  $dni = $cliente['dni'];
+  $dt = new DateTime($cliente['nacimiento']);
+  $nacimiento = $dt->format('Y-m-d');
+  $domicilio = $cliente['domicilio'];
+  $localidad = $cliente['localidad'];
+  $provincia = $cliente['provincia'];
+
+  $sql = "
+    UPDATE suscriptor SET
+          apellido = '$apellido',
+          nombre = '$nombre',
+          dni = '$dni',
+          nacimiento = '$nacimiento',
+          domicilio = '$domicilio'
+          WHERE id = $cliente_id
+  ";
+  
+  $r = DB::connection('universal')->update($sql);
+  if ($r==1){
+    return 'ok';
+  }
+  return 'Error al grabar';
+});
 
 Route::get('crearlistado', 'adminControlador@crearlistado');
 Route::post('verlistado','adminControlador@verlistadoautos');

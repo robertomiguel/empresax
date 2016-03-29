@@ -35,8 +35,8 @@ class suscripcion extends Eloquent {
 
 	static public function listado(){
 		$sql = "
-			Select 
-				concat(suscriptor.apellido, ', ', suscriptor.nombre) as nombre, suscriptor.dni, suscriptor.nacimiento, suscriptor.domicilio,
+			Select suscriptor.id as cliente_id,
+				suscriptor.apellido, suscriptor.nombre, suscriptor.dni, CAST(suscriptor.nacimiento AS Datetime) as nacimiento, suscriptor.domicilio,
 		        localidad.nombre as localidad, provincia.nombre as provincia,
 				suscripcion.id as suscripcion_id, suscripcion.fecha_alta, IF(suscripcion.fecha_baja is null,'ACTIVO','BAJA') as estado,
 		        suscripcion.nro, suscripcion.plan, suscripcion.valor_cuota,
