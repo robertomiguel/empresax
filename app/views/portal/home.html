@@ -19,14 +19,26 @@
         <a href="" ng-click="descargarexcel(total)">Descargar EXCEL</a>
         <a href="" ng-click="ventana()">ventana</a>
         <br>
-        Nombre : <input ng-model="buscar.nombre" />
-        DNI : <input ng-model="buscar.dni" />
-        Localidad : <input ng-model="buscar.localidad" />
-        Estado : <input ng-model="buscar.estado" /> 
-        Período : <input ng-model="buscar.fecha_alta" />
-        Nro. Sus : <input ng-model="buscar.nro" />
-        Plan : <input ng-model="buscar.plan" />
-
+        <table>
+            <tr>
+                <td>Nombre</td><td><input ng-model="buscar.nombre" /></td>
+                <td>Apellido</td><td><input ng-model="buscar.apellido" /></td>
+                <td>DNI</td><td><input ng-model="buscar.dni" /></td>
+            </tr>
+            <tr>
+                <td>Localidad</td><td><input ng-model="buscar.localidad" /></td>
+                <td>Dirección</td><td><input ng-model="buscar.direccion" /></td>
+                <td>Teléfono</td><td><input /></td>
+            </tr>
+            <tr>
+                <td>Estado</td><td><input ng-model="buscar.estado" /></td>
+                <td>Período</td><td><input ng-model="buscar.fecha_alta" /></td>
+                <td>Nro. Sus</td><td><input ng-model="buscar.nro" /></td>
+            </tr>
+            <tr>
+                <td>Plan</td><td><input ng-model="buscar.plan" /></td>
+            </tr>
+        </table>
         <table border="1" ng-init="importeTotal = 0">
             <tr>
                 <td ng-click="orderByMe('localidad')">Suscriptor</td>
@@ -38,7 +50,7 @@
                     <table class="datosCliente" style="width: 100%">
                         <tr>
                             <td colspan="2" align="center">
-                                <strong>{{l.nombre + ',' + l.apellido}}</strong>
+                                <strong>{{l.apellido + ', ' + l.nombre}}</strong>
                             </td>
                         </tr>
                         <tr>
