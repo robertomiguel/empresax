@@ -14,4 +14,11 @@ class agricolaControlador extends BaseController {
 		header('Content-Type: application/json');
 		return json_encode($datos);
 	}
+
+	public function listado()
+	{
+		//$datos = Agricola::listado();
+
+		return json_encode(Agricola::listado());
+	}
 }

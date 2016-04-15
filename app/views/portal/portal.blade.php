@@ -57,6 +57,9 @@
 							<img class="botonplan84" src="/img/plan84.png" alt=""></td>
 						</a>
 				</tr>
+				<tr>
+					<td><a href="/agricola">Agrícola</a></td>
+				</tr>
 				@foreach ($rubros as $r)
 					<tr>
 						<td><a href="javascript:rubrolistado({{$r->id}})">{{$r->nombre}}</a></td>

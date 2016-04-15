@@ -35,8 +35,8 @@ class Autos extends Eloquent {
 		$sql = "
 				SELECT id, marca, modelo, detalle,
 						(a0km * $incr_fabrica) AS costo,
-						(a0km * $incr_nominal) AS nominal,
-						((a0km * $incr_nominal) / $cuotas) AS cuota ,
+						((a0km * $incr_fabrica) * $incr_nominal) AS nominal,
+						(((a0km * $incr_fabrica) * $incr_nominal) / $cuotas) AS cuota ,
 						moneda
 				 FROM autos
 				WHERE marca IN ($marcas) AND a0km > 0

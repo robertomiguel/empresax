@@ -1,0 +1,70 @@
+<!DOCTYPE  html>
+<!--ng-app hace referencia al nombre de nuestro modulo-->
+<head>
+        <meta charset="UTF-8" />
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/ngDialog.min.js"></script>
+        <script type="text/javascript" src="js/agricola.js"></script>
+        <link rel="stylesheet" href="/css/ngDialog.min.css">
+        <link rel="stylesheet" href="/css/ngDialog-theme-default.css">
+        <link rel="stylesheet" href="/css/global.css">
+</head>
+
+<style>
+	table { /*border-collapse: collapse;*/
+		border-collapse: separate;
+    	border-spacing: 0 5px;
+		text-align: center;
+	}
+	.recuadro {
+		border: solid 2px black;
+	}
+	.agricola {
+		padding-left: 14%;
+	}
+</style>
+
+<body>
+	<div class="marco sombra">
+		
+		<img src="/img/cabeza.png" alt="">
+		<div ng-app="myApp" ng-controller="myCtrl" class="agricola">
+			<div class="cabeza">
+			 	<h2>
+					Máquinas Agrícolas
+			 	</h2>
+			</div>
+			<!--
+			<a href="" ng-click="cargar()">Cargar listado</a> -->
+
+			<table class="lista">
+				 <tr ng-repeat="l in listado" class="recuadro">
+				 <td>
+				 	
+				 	<table class="sombra redondear">
+				 		<tr>
+				 			<td>{{l.marca}}</td>
+				 			<td>{{l.modelo}}</td>
+				 			<td>{{l.detalle}}</td>
+				 		</tr>
+				 		<tr>
+				 			<td colspan="3"><img src="/img/agricola/{{l.foto}}" alt=""></td>
+				 		</tr>
+				 		<tr>
+				 			<td colspan="3">
+				 				<p>Descripción</p>
+				 				{{l.info}}
+				 			</td>
+				 		</tr>
+				 	</table>
+				 	<p><hr></p>
+				 </td>
+				 </tr>
+			</table>
+		</div>
+		<img src="/img/pie.png" alt="">
+
+	</div>
+</body>
+
+</html>

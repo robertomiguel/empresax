@@ -1,3 +1,43 @@
+CREATE TABLE `nostromo`.
+`agr_modelo` (
+  `id` INT UNSIGNED NOT NULL,
+  
+`nombre` VARCHAR(50) NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `nostromo`.`agr_marca` 
+(
+  `id` INT UNSIGNED NOT NULL,
+  
+`nombre` VARCHAR(100) NULL,
+  
+`web` VARCHAR(50) NULL,
+  
+`direccion` VARCHAR(50) NULL,
+  
+`contacto` VARCHAR(50) NULL,
+  
+`telefono` VARCHAR(100) NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `nostromo`.`agricola` 
+(
+  `id` INT UNSIGNED NOT NULL,
+  
+`marca_id` INT NULL,
+  
+`modelo_id` INT NULL,
+  
+`detalle` VARCHAR(255) NULL,
+  
+`foto` VARCHAR(255) NULL,
+  
+`info` VARCHAR(512) NULL,
+  
+PRIMARY KEY (`id`));
+
 Drop table if exists consulta;
 CREATE TABLE `consulta` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,

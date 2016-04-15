@@ -54,6 +54,11 @@ Route::post('listadoctb', 'suscripcionControlador@listado');
 Route::get('editarCliente', function(){
   return File::get(app_path().'/views/admin/editarCliente.html');
 });
+Route::get('agricola', function(){
+  return File::get(app_path().'/views/portal/agricola.html');
+});
+Route::post('listadoagricola', 'agricolaControlador@listado');
+
 Route::post('grabarCliente', function(){
   $cliente = Input::get('cliente','naranja');
   $cliente_id = $cliente['cliente_id'];
