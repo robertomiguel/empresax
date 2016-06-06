@@ -69,17 +69,17 @@ app.controller('myCtrl', function($scope, $http, ngDialog) {
 
 
     $scope.editar = function(indice) {
-        $scope.i = indice;
-        ngDialog.open({ template: 'editarCliente',
-                        controller: 'myCtrl',
-                            scope: $scope});
+      $scope.i = indice;
+      ngDialog.open({ template: 'editarCliente',
+                    controller: 'myCtrl',
+                         scope: $scope});
     }
 
     $scope.grabar = function(){
         $http({
           method: 'post',
-          url: 'grabarCliente',
-          data: {cliente:$scope.total[$scope.i]}
+             url: 'grabarCliente',
+            data: {cliente:$scope.total[$scope.i]}
         }).then(function successCallback(response) {
             alert('Respuesta: ' + response.data);
           }, function errorCallback(response) {
@@ -89,11 +89,17 @@ app.controller('myCtrl', function($scope, $http, ngDialog) {
     }
 
     $scope.cerrar = function(){
-        ngDialog.close();
+      ngDialog.close();
     }
 
     $scope.ventana = function() {
-        var html = angular.element(editarsocio).html();
-        ngDialog.open({ template: html, plain : true });
+      var html = angular.element(editarsocio).html();
+      ngDialog.open({ template: html, plain : true });
     }
+
+    $scope.vercuotas = function(indice) {
+      $scope.id = indice;
+      alert($scope.id);
+    }
+
 });

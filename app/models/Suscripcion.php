@@ -37,11 +37,12 @@ class suscripcion extends Eloquent {
 		$sql = "
 			Select suscriptor.id as cliente_id,
 				suscriptor.apellido, suscriptor.nombre, suscriptor.dni, suscriptor.nacimiento, suscriptor.domicilio,
-		        localidad.nombre as localidad, provincia.nombre as provincia,
-				suscripcion.id as suscripcion_id, suscripcion.fecha_alta, IF(suscripcion.fecha_baja is null,'ACTIVO','BAJA') as estado,
+				CONCAT(suscriptor.tel, ' ', suscriptor.celular) AS telefono,
+		        localidad.nombre as localidad, provincia.nombre AS provincia,
+				suscripcion.id as suscripcion_id, suscripcion.fecha_alta, IF(suscripcion.fecha_baja is null,'ACTIVO','BAJA') AS estado,
 		        suscripcion.nro, suscripcion.plan, suscripcion.valor_cuota,
-		        (Select sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id) as nominal,
-		        (Select sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id And cuota.fpago is not null) as pagado,
+		        (Select sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id) AS nominal,
+		        (Select sum(cuota.importe) From cuota Where cuota.suscripcion_id = suscripcion.id And cuota.fpago is not null) AS pagado,
 		        
 		        Concat(
 		        Convert(

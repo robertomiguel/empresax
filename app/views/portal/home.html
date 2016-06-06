@@ -28,7 +28,7 @@
             <tr>
                 <td>Localidad</td><td><input ng-model="buscar.localidad" /></td>
                 <td>Dirección</td><td><input ng-model="buscar.direccion" /></td>
-                <td>Teléfono</td><td><input /></td>
+                <td>Teléfono</td><td><input ng-model="buscar.telefono" /></td>
             </tr>
             <tr>
                 <td>Estado</td><td><input ng-model="buscar.estado" /></td>
@@ -44,9 +44,9 @@
                 <td ng-click="orderByMe('localidad')">Suscriptor</td>
                 <td>Suscripciones</td>
             </tr>
-            <tr ng-repeat="l in listado | orderBy:myOrderBy | filter:buscar | filter:query as total" ng-dblclick="editar($index)"
+            <tr ng-repeat="l in listado | orderBy:myOrderBy | filter:buscar | filter:query as total"
                class="seleccion">
-                <td>
+                <td ng-dblclick="editar($index)">
                     <table class="datosCliente" style="width: 100%">
                         <tr>
                             <td colspan="2" align="center">
@@ -63,6 +63,9 @@
                         <tr>
                             <td align="left">Loc: <strong>{{l.localidad | capital:true}}</strong></td>
                             <td align="right">Prov: <strong>{{l.provincia | capital:true}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td align="left">Tél: <strong>{{l.telefono}}</strong></td>
                         </tr>
                     </table>
                 </td>
@@ -87,6 +90,11 @@
                             <td align="left">Pagado: <strong>{{l.pagado | currency}}</strong></td>
                             <td></td>
                             <td align="right"><strong>{{l.x100}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button ng-click="vercuotas(l.suscripcion_id)">Ver Cuotas</button>
+                            </td>
                         </tr>
                     </table>
                 </td>
