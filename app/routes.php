@@ -55,7 +55,7 @@ Route::get('editarCliente', function(){
   return File::get(app_path().'/views/admin/editarCliente.html');
 });
 Route::get('agricola', function(){
-  return File::get(app_path().'/views/portal/agricola.html');
+  return File::get(app_path().'/views/portal/agricola2.html');
 });
 Route::post('listadoagricola', 'agricolaControlador@listado');
 
