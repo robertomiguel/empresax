@@ -7,7 +7,8 @@ body {
 }
 .marco {
     max-width:900px;
-    background-color: #F2F2F2;
+    /*background-color: #F2F2F2;*/
+    background-color: white;
     margin:auto;
     padding:5px;
     height:auto;
