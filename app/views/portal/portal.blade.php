@@ -4,12 +4,57 @@
 
 {{ Cargar::javascript(array( '/js/portal.js' )) }}
 
+<style>
+	.p84 {
+		font-size: 30px;
+	}
+
+	.marcas2 {
+		width: 100%;
+		text-align: center;
+	}
+</style>
+
 <div class="marco redondear sombra">
 
 <table>
 	<tr>
 		<td colspan="3"><img src="/img/cabeza.png" alt=""></td>
-	</tr>	
+	</tr>
+	<tr>
+		<td colspan="3">
+			<hr>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+			<img src="/img/marcas2.png" alt="">
+		<!--
+			<table align="center" class="marcas2">
+				<tr>
+					<td>
+						<img src="/img/ford.png" alt="">
+					</td>
+					<td>
+						<img src="/img/chevrolet.png" alt="">
+					</td>
+					<td>
+						<img src="/img/fiat.png" alt="">
+					</td>
+					<td>
+						<img src="/img/volkswagen.png" alt="">
+					</td>
+					<td>
+						<img src="/img/toyota.png" alt="">
+					</td>
+					<td>
+						<img src="/img/renault.png" alt="">
+					</td>
+				</tr>
+			</table>
+		-->
+		</td>
+	</tr>
 	<tr>
 		<td class="menu" width="200px">
 			<table class="marcas">
@@ -54,8 +99,10 @@
 				<tr>
 					<td>
 						<a href="javascript:plan84()">
-							<img class="botonplan84" src="/img/plan84.png" alt=""></td>
+							<!-- <img class="botonplan84" src="/img/plan84.png" alt=""> -->
+							<b>PLAN <br> <span class="p84">84</span> <br> CUOTAS</b>
 						</a>
+					</td>
 				</tr>
 				<tr>
 					<td><a href="/agricola">Agrícola</a></td>
@@ -79,6 +126,9 @@
 				</tr>
 			</table>
 		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><img src="/img/toyota_promo.png" alt=""></td>
 	</tr>
 	<tr>
 		<td colspan="3"><img src="/img/pie.png" alt=""></td>
