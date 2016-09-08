@@ -80,14 +80,58 @@
 				<tr>
 					<td>
 					<div  class="imagenes sombra redondear">
-						@foreach ($autos as $a)
 							<div>
-								<h3>{{$a->plan}}</h3>
-								<img class="auto" src="{{$a->foto1}}" alt="">
-								<h3>Desde $ {{Formatos::moneda($a->cuota1)}}.-</h3>
-								<img class="marca" src="{{$a->logo}}" alt="">
+								<h3>Toyota Hilux</h3>
+								<img class="auto" src="/img/autos/a2016/t1.png" alt="">
+								<h3>Desde $ 409.700.-</h3>
+								<img class="marca" src="/img/toyota.png" alt="">
 							</div>
-						@endforeach
+							<div>
+								<h3>Toyota Hilux</h3>
+								<img class="auto" src="/img/autos/a2016/t2.jpg" alt="">
+								<h3>Desde $ 409.700.-</h3>
+								<img class="marca" src="/img/toyota.png" alt="">
+							</div>
+							<div>
+								<h3>Toyota Hilux</h3>
+								<img class="auto" src="/img/autos/a2016/t3.jpg" alt="">
+								<h3>Desde $ 409.700.-</h3>
+								<img class="marca" src="/img/toyota.png" alt="">
+							</div>
+
+							<div>
+								<h3>Peugeot Partner</h3>
+								<img class="auto" src="/img/autos/a2016/p1.jpg" alt="">
+								<h3>Desde $ 284.900.-</h3>
+								<img class="marca" src="/img/peugeot.png" alt="">
+							</div>
+							<div>
+								<h3>Peugeot Partner</h3>
+								<img class="auto" src="/img/autos/a2016/p2.jpg" alt="">
+								<h3>Desde $ 284.900.-</h3>
+								<img class="marca" src="/img/peugeot.png" alt="">
+							</div>
+							<div>
+								<h3>Peugeot Partner</h3>
+								<img class="auto" src="/img/autos/a2016/p3.jpg" alt="">
+								<h3>Desde $ 284.900.-</h3>
+								<img class="marca" src="/img/peugeot.png" alt="">
+							</div>
+
+							<div>
+								<h3>Fiat Toro</h3>
+								<img class="auto" src="/img/autos/a2016/f1.jpg" alt="">
+								<h3>Desde $ 408.900.-</h3>
+								<img class="marca" src="/img/fiat.png" alt="">
+							</div>
+							<div>
+								<h3>Fiat Toro</h3>
+								<img class="auto" src="/img/autos/a2016/f2.jpg" alt="">
+								<h3>Desde $ 408.900.-</h3>
+								<img class="marca" src="/img/fiat.png" alt="">
+							</div>
+
+
 					</div>
 						<br>
 					</td>
