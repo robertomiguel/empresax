@@ -34,7 +34,7 @@ $tema = $ini[$sel];
                                 )) }}
 
   </head>
-  <body>
+  <body onfocusout="blurFunction()">
   
         @yield('content')
   

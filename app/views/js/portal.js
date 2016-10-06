@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  $('.marquee').marquee({
+  direction: 'left'
+});
    $('.imagenes').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -23,6 +26,7 @@ $(document).ready(function() {
       },
 	  buttons: {
         Cerrar: function() {
+          click();
           $( this ).dialog( "close" );
       	}
 	  }
@@ -105,10 +109,17 @@ $(document).ready(function() {
   });
  
   $('.ui-dialog').addClass('sombra');
+
+  document.getElementById("audiostart").play();
+
 });
+
+function blurFunction(){
+}
 
 function cargarlista(marca){
   $( ".ui-dialog-title" ).html('Lista por Marca');
+  click();
   $( "#ventana" ).dialog( "open" );
   $.post("marcalistado",{
     marca: marca
@@ -118,8 +129,13 @@ function cargarlista(marca){
   });
 }
 
+function click(){
+  document.getElementById("audioclick").play();
+}
+
 function rubrolistado(rubro){
   $( ".ui-dialog-title" ).html('Lista por Rubro');
+  click();
   $( "#ventana" ).dialog( "open" );
   $.post("rubrolistado",{
     rubro: rubro

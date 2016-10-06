@@ -4,6 +4,8 @@
 
 {{ Cargar::javascript(array( '/js/portal.js' )) }}
 
+<script type='text/javascript' src='/js/jquery.marquee.min.js'></script>
+
 <style>
 	.p84 {
 		font-size: 30px;
@@ -14,6 +16,8 @@
 		text-align: center;
 	}
 </style>
+<audio id="audioclick" src="/audio/click.mp3" hidden></audio>
+<audio id="audiostart" src="/audio/start.mp3" hidden></audio>
 
 <div class="marco redondear sombra">
 
@@ -28,7 +32,14 @@
 	</tr>
 	<tr>
 		<td colspan="3" align="center">
-			<img src="/img/marcas2.png" alt="">
+			<img src="/img/marcas2-1.png" alt="">
+			<div>
+				<marquee behavior="alternate" class="marquesina redondear2">
+					CAMBIE SU VEHÍCULO USADO - CUOTAS FIJAS - ADJUDICACIÓN INMEDIATA
+				</marquee>
+			</div>
+
+			<img src="/img/marcas2-2.png" alt="">
 		<!--
 			<table align="center" class="marcas2">
 				<tr>
@@ -172,13 +183,33 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3" align="center"><img src="/img/toyota_promo.png" alt=""></td>
+		<td colspan="3" align="center">
+			<div class="marquee redondear2 sombra" data-duplicated='true' data-direction='left'>
+				<span class="textoAzul blink">PROMOCIONES OCTUBRE 2016</span> • TOYOTA SRX <span class="textoAzul blink">$9.000</span> • FIAT NUEVO PALIO <span class="textoAzul blink">$2.916</span> • CHEVROLET AGILE <span class="textoAzul blink">$2.333</span> • ADJUDICACIÓN 50% • CUOTAS FIJAS • 
+			</div>
+		</td>
 	</tr>
+	<!--
+	<tr>
+		<td colspan="3" align="center">
+		<br>
+			<img src="/img/toyota_promo.png" alt="" class="redondear2 sombra">
+		</td>
+	</tr>
+	-->
 	<tr>
 		<td colspan="3"><img src="/img/pie.png" alt=""></td>
 	</tr>
-</table>	
+</table>
+	
 
+</div>
+
+<br>
+<div align="center">
+	<div align="center" class="sonidobox redondear2">
+		<audio id="audiofondo" src="/audio/fondo.mp3" loop controls autoplay></audio>
+	</div>	
 </div>
 
  <div id='ventana' title='Lista'>
