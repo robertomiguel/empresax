@@ -17,7 +17,6 @@
 	}
 </style>
 <audio id="audioclick" src="/audio/click.mp3" hidden></audio>
-<audio id="audiostart" src="/audio/start.mp3" hidden></audio>
 
 <div class="marco redondear sombra">
 
@@ -184,8 +183,8 @@
 	</tr>
 	<tr>
 		<td colspan="3" align="center">
-			<div class="marquee redondear2 sombra" data-duplicated='true' data-direction='left'>
-				<span class="textoAzul blink">PROMOCIONES OCTUBRE 2016</span> • TOYOTA SRX <span class="textoAzul blink">$9.000</span> • FIAT NUEVO PALIO <span class="textoAzul blink">$2.916</span> • CHEVROLET AGILE <span class="textoAzul blink">$2.333</span> • ADJUDICACIÓN 50% • CUOTAS FIJAS • 
+			<div class="marquee redondear2 sombra fondoNegro" data-duplicated='true' data-direction='left'>
+				<span class="textoAmarillo blink">PROMOCIONES </span> • TOYOTA SRX <span class="textoAmarillo blink">$9.000</span> • FIAT NUEVO PALIO <span class="textoAmarillo blink">$2.916</span> • CHEVROLET AGILE <span class="textoAmarillo blink">$2.333</span> • ADJUDICACIÓN 50% • CUOTAS FIJAS • 
 			</div>
 		</td>
 	</tr>
@@ -208,7 +207,7 @@
 <br>
 <div align="center">
 	<div align="center" class="sonidobox redondear2">
-		<audio id="audiofondo" src="/audio/fondo.mp3" loop controls autoplay></audio>
+		<audio id="audiofondo" src="/audio/fondo.mp3" loop controls></audio>
 	</div>	
 </div>
 
